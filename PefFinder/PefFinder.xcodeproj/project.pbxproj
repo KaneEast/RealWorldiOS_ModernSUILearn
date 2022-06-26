@@ -15,6 +15,7 @@
 		3C6961C428674E770089BE5C /* PefFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6961C328674E770089BE5C /* PefFinderUITests.swift */; };
 		3C6961C628674E770089BE5C /* PefFinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6961C528674E770089BE5C /* PefFinderUITestsLaunchTests.swift */; };
 		3C6961D328674E990089BE5C /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6961D228674E980089BE5C /* APIConstants.swift */; };
+		3CA0126F2868AB9C00148376 /* AnimalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0126E2868AB9C00148376 /* AnimalRow.swift */; };
 		3CA138462868198600C59ADA /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA138452868198600C59ADA /* RequestProtocol.swift */; };
 		3CA13848286819B100C59ADA /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA13847286819B100C59ADA /* RequestType.swift */; };
 		3CA1384A28681BDC00C59ADA /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA1384928681BDC00C59ADA /* NetworkError.swift */; };
@@ -60,6 +61,7 @@
 		3C6961C328674E770089BE5C /* PefFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PefFinderUITests.swift; sourceTree = "<group>"; };
 		3C6961C528674E770089BE5C /* PefFinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PefFinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3C6961D228674E980089BE5C /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		3CA0126E2868AB9C00148376 /* AnimalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalRow.swift; sourceTree = "<group>"; };
 		3CA138452868198600C59ADA /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		3CA13847286819B100C59ADA /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		3CA1384928681BDC00C59ADA /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				3CA1386428682F1600C59ADA /* AnimalsNearYouViewModel.swift */,
 				3CA1386028682EC100C59ADA /* AnimalsNearYouView.swift */,
+				3CA0126E2868AB9C00148376 /* AnimalRow.swift */,
 			);
 			path = AnimalsNearYou;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				3C6961A928674E750089BE5C /* PefFinderApp.swift in Sources */,
 				3C6961D328674E990089BE5C /* APIConstants.swift in Sources */,
 				3CA138532868203100C59ADA /* AuthTokenRequest.swift in Sources */,
+				3CA0126F2868AB9C00148376 /* AnimalRow.swift in Sources */,
 				3CA1384E28681EBB00C59ADA /* RequestManager.swift in Sources */,
 				3CA1384A28681BDC00C59ADA /* NetworkError.swift in Sources */,
 				3CA1386128682EC100C59ADA /* AnimalsNearYouView.swift in Sources */,
@@ -462,7 +466,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -517,7 +521,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

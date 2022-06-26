@@ -11,17 +11,23 @@ struct AnimalsNearYouView: View {
     @ObservedObject var viewModel: AnimalsNearYouViewModel
     
     var body: some View {
-        List {
-            ForEach(viewModel.animals) { animal in
-                Text(animal.name)
+        NavigationView {
+            List {
+                ForEach(viewModel.animals) { animal in
+                    AnimalRow(animal: animal)
+                }
             }
-        }
-        .listStyle(.plain)
-        .onAppear {
-            Task {
+            .task {
                 await viewModel.fetchAnimals()
             }
-        }
+            .listStyle(.plain)
+            .navigationTitle("Animals near you")
+            .overlay {
+                if viewModel.isLoading && viewModel.animals.isEmpty {
+                    ProgressView("Finding Animals near you...")
+                }
+            }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

@@ -45,7 +45,7 @@ enum AnimalsRequest: RequestProtocol {
             return params
         }
     }
-    // 4
+
     var requestType: RequestType {
         .GET
     }

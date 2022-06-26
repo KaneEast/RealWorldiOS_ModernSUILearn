@@ -9,22 +9,29 @@ import Foundation
 
 class AnimalsNearYouViewModel: ObservableObject {
     private let requestManager = RequestManager()
-
+    
     @Published var animals: [Animal] = []
+    @Published var isLoading: Bool = false
     
     func fetchAnimals() async {
-      do {
-        // 1
-        let animalsContainer: AnimalsContainer =
-          try await requestManager.perform(AnimalsRequest.getAnimalsWith(
-            page: 1,
-            latitude: nil,
-            longitude: nil))
-        // 2
-        self.animals = animalsContainer.animals
-        // 3
-//        await stopLoading()
-      } catch {}
+        do {
+            isLoading = true
+            let animalsContainer: AnimalsContainer =
+            try await requestManager.perform(
+                AnimalsRequest.getAnimalsWith(
+                    page: 1,
+                    latitude: nil,
+                    longitude: nil)
+            )
+            
+            print("123")
+            DispatchQueue.main.async {
+                self.isLoading = false
+                self.animals = animalsContainer.animals
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
     }
-
+    
 }
