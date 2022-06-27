@@ -6,50 +6,103 @@
 //
 
 import SwiftUI
+import RealmSwift
 
-struct Animal: Codable {
-    var id: Int?
-    let organizationId: String?
+//struct Animal: Codable {
+class Animal: Object, ObjectKeyIdentifiable, Codable {
+    
+//    var id: Int?
+    @Persisted(primaryKey: true) var id: ObjectId
+    
+    @Persisted var idM: Int?
+    @Persisted var organizationId: String?
     let url: URL?
-    let type: String
-    let species: String?
-//    var breeds: Breed
-//    var colors: APIColors
+    @Persisted var type: String
+    @Persisted var species: String?
+    //    var breeds: Breed
+    //    var colors: APIColors
     let age: Age
     let gender: Gender
     let size: Size
     let coat: Coat?
-    let name: String
-    let description: String?
+    @Persisted var name: String
+    @Persisted var descriptionM: String?
     let photos: [PhotoSizes]
-//    let videos: [VideoLink]
-//    let status: AdoptionStatus
-//    var attributes: AnimalAttributes
-//    var environment: AnimalEnvironment?
-//    let tags: [String]
-//    var contact: Contact
-//    let publishedAt: String?
-//    let distance: Double?
-//    var ranking: Int? = 0
+    //    let videos: [VideoLink]
+    //    let status: AdoptionStatus
+    //    var attributes: AnimalAttributes
+    //    var environment: AnimalEnvironment?
+    //    let tags: [String]
+    //    var contact: Contact
+    //    let publishedAt: String?
+    //    let distance: Double?
+    //    var ranking: Int? = 0
     
     var picture: URL? {
         photos.first?.medium ?? photos.first?.large
     }
     
-    // Todo: this code is for just now 
-    init() {
-        self.id = 1
+    // Todo: this code is for just now
+    override init() {
+        self.idM = 1
         self.organizationId = "1"
         self.url = nil
         self.type = "nil"
         self.species = "nil"
         self.name = "1"
-        self.description = "1"
+        self.descriptionM = "description"
         self.photos = []
         self.age = .baby
         self.gender = .male
         self.size = .small
         self.coat = .curly
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case idM = "id"
+        case organizationId
+        case url
+        case type
+        case species
+        case name
+        case descriptionM = "description"
+        case photos
+        case age
+        case gender
+        case size
+        case coat
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.idM = try container.decode(Int?.self, forKey: .idM)
+        self.organizationId = try container.decode(String?.self, forKey: .organizationId)
+        self.url = try container.decode(URL?.self, forKey: .url)
+        self.type = try container.decode(String.self, forKey: .type)
+        self.species = try container.decode(String?.self, forKey: .species)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.descriptionM = try container.decode(String?.self, forKey: .descriptionM)
+        self.age = try container.decode(Age.self, forKey: .age)
+        self.gender = try container.decode(Gender.self, forKey: .gender)
+        self.size = try container.decode(Size.self, forKey: .size)
+        self.coat = try container.decode(Coat?.self, forKey: .coat)
+        self.photos = try container.decode([PhotoSizes].self, forKey: .photos)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(idM, forKey: .idM)
+        try container.encode(organizationId, forKey: .organizationId)
+        try container.encode(url, forKey: .url)
+        try container.encode(type, forKey: .type)
+        try container.encode(species, forKey: .species)
+        try container.encode(name, forKey: .name)
+        try container.encode(descriptionM, forKey: .descriptionM)
+        try container.encode(age, forKey: .age)
+        try container.encode(gender, forKey: .gender)
+        try container.encode(size, forKey: .size)
+        try container.encode(coat, forKey: .coat)
+        try container.encode(photos, forKey: .photos)
     }
 }
 
