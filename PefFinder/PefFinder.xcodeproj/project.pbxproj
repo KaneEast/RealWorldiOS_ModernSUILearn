@@ -18,6 +18,11 @@
 		3CA0126F2868AB9C00148376 /* AnimalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0126E2868AB9C00148376 /* AnimalRow.swift */; };
 		3CA012712869679D00148376 /* AccessTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012702869679D00148376 /* AccessTokenManager.swift */; };
 		3CA012732869680000148376 /* AppUserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012722869680000148376 /* AppUserDefaultsKeys.swift */; };
+		3CA0127528696A3A00148376 /* AnimalsMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 3CA0127428696A3A00148376 /* AnimalsMock.json */; };
+		3CA0127A28696C9700148376 /* APIManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0127928696C9700148376 /* APIManagerMock.swift */; };
+		3CA0127D28696CD600148376 /* AccessTokenTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0127C28696CD600148376 /* AccessTokenTestHelper.swift */; };
+		3CA0127F28696D9500148376 /* AnimalsRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0127E28696D9500148376 /* AnimalsRequestMock.swift */; };
+		3CA0128128696DF800148376 /* RequestManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0128028696DF800148376 /* RequestManagerTests.swift */; };
 		3CA138462868198600C59ADA /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA138452868198600C59ADA /* RequestProtocol.swift */; };
 		3CA13848286819B100C59ADA /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA13847286819B100C59ADA /* RequestType.swift */; };
 		3CA1384A28681BDC00C59ADA /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA1384928681BDC00C59ADA /* NetworkError.swift */; };
@@ -66,6 +71,11 @@
 		3CA0126E2868AB9C00148376 /* AnimalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalRow.swift; sourceTree = "<group>"; };
 		3CA012702869679D00148376 /* AccessTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenManager.swift; sourceTree = "<group>"; };
 		3CA012722869680000148376 /* AppUserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserDefaultsKeys.swift; sourceTree = "<group>"; };
+		3CA0127428696A3A00148376 /* AnimalsMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AnimalsMock.json; sourceTree = "<group>"; };
+		3CA0127928696C9700148376 /* APIManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerMock.swift; sourceTree = "<group>"; };
+		3CA0127C28696CD600148376 /* AccessTokenTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenTestHelper.swift; sourceTree = "<group>"; };
+		3CA0127E28696D9500148376 /* AnimalsRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsRequestMock.swift; sourceTree = "<group>"; };
+		3CA0128028696DF800148376 /* RequestManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManagerTests.swift; sourceTree = "<group>"; };
 		3CA138452868198600C59ADA /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		3CA13847286819B100C59ADA /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		3CA1384928681BDC00C59ADA /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -146,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				3C6961AF28674E770089BE5C /* Preview Assets.xcassets */,
+				3CA0127428696A3A00148376 /* AnimalsMock.json */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -153,6 +164,7 @@
 		3C6961B828674E770089BE5C /* PefFinderTests */ = {
 			isa = PBXGroup;
 			children = (
+				3CA0127628696A8F00148376 /* Core */,
 				3C6961B928674E770089BE5C /* PefFinderTests.swift */,
 			);
 			path = PefFinderTests;
@@ -165,6 +177,41 @@
 				3C6961C528674E770089BE5C /* PefFinderUITestsLaunchTests.swift */,
 			);
 			path = PefFinderUITests;
+			sourceTree = "<group>";
+		};
+		3CA0127628696A8F00148376 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3CA0127728696A9500148376 /* API */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3CA0127728696A9500148376 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				3CA0127B28696CCB00148376 /* Helper */,
+				3CA0127828696C8B00148376 /* Mock */,
+				3CA0128028696DF800148376 /* RequestManagerTests.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		3CA0127828696C8B00148376 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				3CA0127928696C9700148376 /* APIManagerMock.swift */,
+				3CA0127E28696D9500148376 /* AnimalsRequestMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		3CA0127B28696CCB00148376 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				3CA0127C28696CD600148376 /* AccessTokenTestHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		3CA138432868191200C59ADA /* Core */ = {
@@ -343,6 +390,7 @@
 			files = (
 				3C6961B028674E770089BE5C /* Preview Assets.xcassets in Resources */,
 				3C6961AD28674E770089BE5C /* Assets.xcassets in Resources */,
+				3CA0127528696A3A00148376 /* AnimalsMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +442,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CA0127D28696CD600148376 /* AccessTokenTestHelper.swift in Sources */,
+				3CA0128128696DF800148376 /* RequestManagerTests.swift in Sources */,
+				3CA0127A28696C9700148376 /* APIManagerMock.swift in Sources */,
 				3C6961BA28674E770089BE5C /* PefFinderTests.swift in Sources */,
+				3CA0127F28696D9500148376 /* AnimalsRequestMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

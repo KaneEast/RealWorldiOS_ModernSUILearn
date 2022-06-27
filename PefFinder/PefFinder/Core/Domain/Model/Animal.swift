@@ -17,8 +17,8 @@ struct Animal: Codable {
 //    var colors: APIColors
     let age: Age
     let gender: Gender
-//    let size: Size
-//    let coat: Coat?
+    let size: Size
+    let coat: Coat?
     let name: String
     let description: String?
     let photos: [PhotoSizes]
@@ -36,7 +36,7 @@ struct Animal: Codable {
         photos.first?.medium ?? photos.first?.large
     }
     
-    // Todo: TestCode
+    // Todo: this code is for just now 
     init() {
         self.id = 1
         self.organizationId = "1"
@@ -48,6 +48,8 @@ struct Animal: Codable {
         self.photos = []
         self.age = .baby
         self.gender = .male
+        self.size = .small
+        self.coat = .curly
     }
 }
 
