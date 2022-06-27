@@ -1,4 +1,4 @@
-# 機能のグループ化
+# プロジェクトの組織:機能のグループ化
 
 ![start](MarkdownImages/HGrouping_VS_VGrouping.png?cropResize=40,40)
 
