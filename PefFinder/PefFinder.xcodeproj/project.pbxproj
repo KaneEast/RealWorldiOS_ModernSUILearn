@@ -25,6 +25,8 @@
 		3CA0128128696DF800148376 /* RequestManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0128028696DF800148376 /* RequestManagerTests.swift */; };
 		3CA0128428698B9100148376 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 3CA0128328698B9100148376 /* Realm */; };
 		3CA0128628698B9100148376 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3CA0128528698B9100148376 /* RealmSwift */; };
+		3CA0128D286B4BBA00148376 /* PefStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0128C286B4BBA00148376 /* PefStore.swift */; };
+		3CA0128F286B523C00148376 /* RealmMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0128E286B523C00148376 /* RealmMigrator.swift */; };
 		3CA138462868198600C59ADA /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA138452868198600C59ADA /* RequestProtocol.swift */; };
 		3CA13848286819B100C59ADA /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA13847286819B100C59ADA /* RequestType.swift */; };
 		3CA1384A28681BDC00C59ADA /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA1384928681BDC00C59ADA /* NetworkError.swift */; };
@@ -78,6 +80,8 @@
 		3CA0127C28696CD600148376 /* AccessTokenTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenTestHelper.swift; sourceTree = "<group>"; };
 		3CA0127E28696D9500148376 /* AnimalsRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsRequestMock.swift; sourceTree = "<group>"; };
 		3CA0128028696DF800148376 /* RequestManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManagerTests.swift; sourceTree = "<group>"; };
+		3CA0128C286B4BBA00148376 /* PefStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PefStore.swift; sourceTree = "<group>"; };
+		3CA0128E286B523C00148376 /* RealmMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMigrator.swift; sourceTree = "<group>"; };
 		3CA138452868198600C59ADA /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		3CA13847286819B100C59ADA /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		3CA1384928681BDC00C59ADA /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 				3CA012722869680000148376 /* AppUserDefaultsKeys.swift */,
 				3C6961AC28674E770089BE5C /* Assets.xcassets */,
 				3C6961AE28674E770089BE5C /* Preview Content */,
+				3CA0128E286B523C00148376 /* RealmMigrator.swift */,
 			);
 			path = PefFinder;
 			sourceTree = "<group>";
@@ -218,9 +223,18 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		3CA0128B286B4B9F00148376 /* PefStore */ = {
+			isa = PBXGroup;
+			children = (
+				3CA0128C286B4BBA00148376 /* PefStore.swift */,
+			);
+			path = PefStore;
+			sourceTree = "<group>";
+		};
 		3CA138432868191200C59ADA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3CA0128B286B4B9F00148376 /* PefStore */,
 				3CA1384F28681F3800C59ADA /* DataParser.swift */,
 				3CA138582868298B00C59ADA /* Domain */,
 				3CA138442868196300C59ADA /* API */,
@@ -430,6 +444,7 @@
 				3C6961A928674E750089BE5C /* PefFinderApp.swift in Sources */,
 				3C6961D328674E990089BE5C /* APIConstants.swift in Sources */,
 				3CA138532868203100C59ADA /* AuthTokenRequest.swift in Sources */,
+				3CA0128F286B523C00148376 /* RealmMigrator.swift in Sources */,
 				3CA0126F2868AB9C00148376 /* AnimalRow.swift in Sources */,
 				3CA1384E28681EBB00C59ADA /* RequestManager.swift in Sources */,
 				3CA1384A28681BDC00C59ADA /* NetworkError.swift in Sources */,
@@ -440,6 +455,7 @@
 				3CA1384C28681DA800C59ADA /* APIManager.swift in Sources */,
 				3CA012732869680000148376 /* AppUserDefaultsKeys.swift in Sources */,
 				3CA13857286828F600C59ADA /* AnimalsRequest.swift in Sources */,
+				3CA0128D286B4BBA00148376 /* PefStore.swift in Sources */,
 				3CA1385028681F3800C59ADA /* DataParser.swift in Sources */,
 				3CA1386528682F1600C59ADA /* AnimalsNearYouViewModel.swift in Sources */,
 				3CA1385D28682A2400C59ADA /* Animal.swift in Sources */,

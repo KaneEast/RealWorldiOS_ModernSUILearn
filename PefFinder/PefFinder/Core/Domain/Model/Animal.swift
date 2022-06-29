@@ -8,26 +8,46 @@
 import SwiftUI
 import RealmSwift
 
-//struct Animal: Codable {
 class Animal: Object, ObjectKeyIdentifiable, Codable {
+    @Persisted(primaryKey: true) var uuid: ObjectId
     
-//    var id: Int?
-    @Persisted(primaryKey: true) var id: ObjectId
-    
-    @Persisted var idM: Int?
+    @Persisted var id: Int?
     @Persisted var organizationId: String?
-    let url: URL?
+    
+    var url: URL? {
+        get { URL(string: rawUrl) }
+        set { rawUrl = newValue?.absoluteString ?? "" }
+    }
+    
+    @Persisted var rawUrl: String
+    
     @Persisted var type: String
     @Persisted var species: String?
-    //    var breeds: Breed
-    //    var colors: APIColors
-    let age: Age
-    let gender: Gender
-    let size: Size
-    let coat: Coat?
+    @Persisted var age: Age
+    @Persisted var gender: Gender
+    @Persisted var size: Size
+    @Persisted var coat: Coat?
     @Persisted var name: String
     @Persisted var descriptionM: String?
-    let photos: [PhotoSizes]
+    
+    var photos: [PhotoSizes] {
+        get {
+            guard let rawPhotos = rawPhotos,
+                  let pts = try? JSONDecoder().decode([PhotoSizes].self, from: rawPhotos)
+            else {
+                return []
+            }
+            
+            return pts
+        }
+        set {
+            rawPhotos = try? JSONEncoder().encode(newValue)
+        }
+    }
+    @Persisted var rawPhotos: Data?
+    
+    //    var breeds: Breed
+    //    var colors: APIColors
     //    let videos: [VideoLink]
     //    let status: AdoptionStatus
     //    var attributes: AnimalAttributes
@@ -44,14 +64,14 @@ class Animal: Object, ObjectKeyIdentifiable, Codable {
     
     // Todo: this code is for just now
     override init() {
-        self.idM = 1
+        self.id = 1
         self.organizationId = "1"
-        self.url = nil
+        self.rawUrl = ""
         self.type = "nil"
         self.species = "nil"
         self.name = "1"
         self.descriptionM = "description"
-        self.photos = []
+        self.rawPhotos = nil
         self.age = .baby
         self.gender = .male
         self.size = .small
@@ -59,7 +79,7 @@ class Animal: Object, ObjectKeyIdentifiable, Codable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case idM = "id"
+        case id
         case organizationId
         case url
         case type
@@ -75,9 +95,9 @@ class Animal: Object, ObjectKeyIdentifiable, Codable {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.idM = try container.decode(Int?.self, forKey: .idM)
+        self.id = try container.decode(Int?.self, forKey: .id)
         self.organizationId = try container.decode(String?.self, forKey: .organizationId)
-        self.url = try container.decode(URL?.self, forKey: .url)
+        let url = try container.decode(URL.self, forKey: .url)
         self.type = try container.decode(String.self, forKey: .type)
         self.species = try container.decode(String?.self, forKey: .species)
         self.name = try container.decode(String.self, forKey: .name)
@@ -86,12 +106,15 @@ class Animal: Object, ObjectKeyIdentifiable, Codable {
         self.gender = try container.decode(Gender.self, forKey: .gender)
         self.size = try container.decode(Size.self, forKey: .size)
         self.coat = try container.decode(Coat?.self, forKey: .coat)
-        self.photos = try container.decode([PhotoSizes].self, forKey: .photos)
+        let photos = try container.decode([PhotoSizes].self, forKey: .photos)
+        
+        self.rawUrl = url.absoluteString
+        self.rawPhotos = try? JSONEncoder().encode(photos)
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(idM, forKey: .idM)
+        try container.encode(id, forKey: .id)
         try container.encode(organizationId, forKey: .organizationId)
         try container.encode(url, forKey: .url)
         try container.encode(type, forKey: .type)
@@ -131,7 +154,7 @@ struct Breed: Codable {
     var unknown: Bool?
 }
 
-enum Gender: String, Codable {
+enum Gender: String, Codable, PersistableEnum {
     case female = "Female"
     case male = "Male"
     case unknown = "Unknown"
@@ -144,7 +167,7 @@ struct Pagination: Codable {
     let totalPages: Int
 }
 
-enum Coat: String, Codable {
+enum Coat: String, Codable, PersistableEnum {
     case short = "Short"
     case medium = "Medium"
     case long = "Long"
@@ -154,7 +177,7 @@ enum Coat: String, Codable {
     case unknown = "Unknown"
 }
 
-enum Size: String, Codable {
+enum Size: String, Codable, PersistableEnum {
     case small = "Small"
     case medium = "Medium"
     case large = "Large"
@@ -192,7 +215,7 @@ enum AdoptionStatus: String, Codable {
     case unknown
 }
 
-enum Age: String, Codable, CaseIterable {
+enum Age: String, Codable, CaseIterable, PersistableEnum {
     case baby = "Baby"
     case young = "Young"
     case adult = "Adult"
