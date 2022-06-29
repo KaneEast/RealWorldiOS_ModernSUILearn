@@ -8,8 +8,18 @@
 import Foundation
 import RealmSwift
 
+protocol AnimalsFetcher {
+    func fetchAnimals(page: Int) async -> [Animal]
+}
+
+// @MainActorアノテーションは、このクラスで実行されるすべてのコードがメインスレッド内にあることを確認します。
+// FetchAnimalsServiceから結果を受け取ると、実行がメインスレッドに戻るため、
+// メインスレッドの外部でUIを更新することを恐れずに、公開プロパティを更新できます。
+@MainActor
 class AnimalsNearYouViewModel: ObservableObject {
-    private let requestManager = RequestManager()
+    //    private let requestManager = RequestManager()
+    private let animalFetcher: AnimalsFetcher
+    
     
     @Published var animals: [Animal] = []
     @Published var isLoading: Bool = false
@@ -19,33 +29,24 @@ class AnimalsNearYouViewModel: ObservableObject {
         Animal.self,
         where: { $0.id != nil }
     ) var animalsInDatabase
-
+    
+    init(isLoading: Bool = true, animalFetcher: AnimalsFetcher) {
+        self.isLoading = isLoading
+        self.animalFetcher = animalFetcher
+    }
     
     func fetchAnimals() async {
-        do {
-            isLoading = true
-            let animalsContainer: AnimalsContainer = try await requestManager.perform(
-                AnimalsRequest.getAnimalsWith(
-                    page: 1,
-                    latitude: nil,
-                    longitude: nil
-                )
-            )
-            
-            print("123")
-            DispatchQueue.main.async {
-                self.isLoading = false
-                
-                // save first page
-                if self.animals.isEmpty {
-                    PefStore.shared.saveAnimals(animals: animalsContainer.animals)
-                }
-                
-                self.animals = animalsContainer.animals
-            }
-        } catch {
-            print(error.localizedDescription)
+        isLoading = true
+        let animals = await animalFetcher.fetchAnimals(page: 1)
+        
+        self.isLoading = false
+        
+        // save first page
+        if self.animals.isEmpty {
+            PefStore.shared.saveAnimals(animals: animals)
         }
+        
+        self.animals = animals
     }
     
 }

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AnimalRow: View {
-//    let animal: AnimalEntity
     let animal: Animal
     
     var animalName: String
@@ -19,12 +18,11 @@ struct AnimalRow: View {
         "\(animalType)"
     }
     
-//    init(animal: AnimalEntity) {
     init(animal: Animal) {
         self.animal = animal
         animalName = animal.name
         animalType = animal.type
-        animalDescription = animal.description ?? ""
+        animalDescription = animal.descriptionM ?? ""
     }
     
     var body: some View {
@@ -37,7 +35,7 @@ struct AnimalRow: View {
                     .font(Font.custom("sheep_sans", size: 18, relativeTo: .title3))
                 Text(animalBreedAndType)
                     .font(Font.custom("sheep_sans", size: 15, relativeTo: .callout))
-                if let description = animal.description {
+                if let description = animal.descriptionM {
                     Text(description)
                         .lineLimit(2)
                         .font(.footnote)

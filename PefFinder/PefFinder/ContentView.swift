@@ -10,7 +10,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            AnimalsNearYouView(viewModel: AnimalsNearYouViewModel())
+//            AnimalsNearYouView(viewModel: AnimalsNearYouViewModel())
+            AnimalsNearYouView(
+              viewModel: AnimalsNearYouViewModel(
+                animalFetcher: FetchAnimalsService(requestManager: RequestManager())
+              )
+            )
             .tabItem {
                 Label("Near you", systemImage: "location")
             }

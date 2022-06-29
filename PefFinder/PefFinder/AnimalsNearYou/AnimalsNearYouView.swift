@@ -34,12 +34,21 @@ struct AnimalsNearYouView: View {
 
 struct AnimalsNearYouView_Previews: PreviewProvider {
     static var previews: some View {
-        AnimalsNearYouView(viewModel: AnimalsNearYouViewModel())
+        AnimalsNearYouView(
+//            viewModel: AnimalsNearYouViewModel(
+//                animalFetcher: FetchAnimalsService(requestManager: RequestManager())
+//            )
+            viewModel: AnimalsNearYouViewModel(
+              animalFetcher: AnimalsFetcherMock()
+            )
+
+        )
     }
     
     // TODO: Make MockDB?
-    init() {
-        PefStore.shared.clearAnimals()
-        PefStore.shared.saveAnimals(animals: Animal.mock)
-    }
+//    init() {
+//        if PefStore.shared.getAnimals().isEmpty {
+//            PefStore.shared.saveAnimals(animals: Animal.mock)
+//        }
+//    }
 }
