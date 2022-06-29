@@ -36,4 +36,10 @@ struct AnimalsNearYouView_Previews: PreviewProvider {
     static var previews: some View {
         AnimalsNearYouView(viewModel: AnimalsNearYouViewModel())
     }
+    
+    // TODO: Make MockDB?
+    init() {
+        PefStore.shared.clearAnimals()
+        PefStore.shared.saveAnimals(animals: Animal.mock)
+    }
 }

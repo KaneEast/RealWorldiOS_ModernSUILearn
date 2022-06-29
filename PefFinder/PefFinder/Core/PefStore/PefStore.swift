@@ -21,4 +21,10 @@ class PefStore {
     func getAnimals() ->  [Animal] {
         Array(realm.objects(Animal.self))
     }
+    
+    func clearAnimals() {
+        try? realm.write {
+            realm.delete(realm.objects(Animal.self))
+        }
+    }
 }
