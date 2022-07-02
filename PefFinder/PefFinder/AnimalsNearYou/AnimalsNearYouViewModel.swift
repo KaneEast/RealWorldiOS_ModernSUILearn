@@ -23,6 +23,9 @@ class AnimalsNearYouViewModel: ObservableObject {
     
     @Published var animals: [Animal] = []
     @Published var isLoading: Bool = false
+    @Published var hasMoreAnimals = true
+    private(set) var page = 1
+    
     
     // animalsInDatabase observe
     @ObservedResults(
@@ -37,7 +40,7 @@ class AnimalsNearYouViewModel: ObservableObject {
     
     func fetchAnimals() async {
         isLoading = true
-        let animals = await animalFetcher.fetchAnimals(page: 1)
+        let animals = await animalFetcher.fetchAnimals(page: page)
         
         self.isLoading = false
         
@@ -47,6 +50,12 @@ class AnimalsNearYouViewModel: ObservableObject {
         }
         
         self.animals = animals
+        hasMoreAnimals = !animals.isEmpty
+    }
+    
+    func fetchMoreAnimals() async {
+        page += 1
+        await fetchAnimals()
     }
     
 }
