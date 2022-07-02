@@ -17,7 +17,6 @@ protocol AnimalsFetcher {
 // メインスレッドの外部でUIを更新することを恐れずに、公開プロパティを更新できます。
 @MainActor
 class AnimalsNearYouViewModel: ObservableObject {
-    //    private let requestManager = RequestManager()
     private let animalFetcher: AnimalsFetcher
     
     

@@ -12,3 +12,9 @@ struct AnimalsFetcherMock: AnimalsFetcher {
     Animal.mock
   }
 }
+
+struct EmptyResponseAnimalsFetcherMock: AnimalsFetcher {
+  func fetchAnimals(page: Int) async -> [Animal] {
+    return []
+  }
+}

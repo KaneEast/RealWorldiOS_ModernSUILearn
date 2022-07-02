@@ -31,6 +31,7 @@
 		3CA01293286C321600148376 /* FetchAnimalsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA01292286C321600148376 /* FetchAnimalsService.swift */; };
 		3CA01295286C349A00148376 /* AnimalsFetcherMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA01294286C349A00148376 /* AnimalsFetcherMock.swift */; };
 		3CA01298286FFE7F00148376 /* AnimalAttributesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA01297286FFE7F00148376 /* AnimalAttributesCard.swift */; };
+		3CA0129B286FFFEF00148376 /* AnimalsNearYouViewModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0129A286FFFEF00148376 /* AnimalsNearYouViewModelTestCase.swift */; };
 		3CA138462868198600C59ADA /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA138452868198600C59ADA /* RequestProtocol.swift */; };
 		3CA13848286819B100C59ADA /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA13847286819B100C59ADA /* RequestType.swift */; };
 		3CA1384A28681BDC00C59ADA /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA1384928681BDC00C59ADA /* NetworkError.swift */; };
@@ -90,6 +91,7 @@
 		3CA01292286C321600148376 /* FetchAnimalsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAnimalsService.swift; sourceTree = "<group>"; };
 		3CA01294286C349A00148376 /* AnimalsFetcherMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsFetcherMock.swift; sourceTree = "<group>"; };
 		3CA01297286FFE7F00148376 /* AnimalAttributesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalAttributesCard.swift; sourceTree = "<group>"; };
+		3CA0129A286FFFEF00148376 /* AnimalsNearYouViewModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsNearYouViewModelTestCase.swift; sourceTree = "<group>"; };
 		3CA138452868198600C59ADA /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		3CA13847286819B100C59ADA /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		3CA1384928681BDC00C59ADA /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		3C6961B828674E770089BE5C /* PefFinderTests */ = {
 			isa = PBXGroup;
 			children = (
+				3CA01299286FFFD600148376 /* AnimalsNearYou */,
 				3CA0127628696A8F00148376 /* Core */,
 				3C6961B928674E770089BE5C /* PefFinderTests.swift */,
 			);
@@ -247,6 +250,14 @@
 				3CA01297286FFE7F00148376 /* AnimalAttributesCard.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		3CA01299286FFFD600148376 /* AnimalsNearYou */ = {
+			isa = PBXGroup;
+			children = (
+				3CA0129A286FFFEF00148376 /* AnimalsNearYouViewModelTestCase.swift */,
+			);
+			path = AnimalsNearYou;
 			sourceTree = "<group>";
 		};
 		3CA138432868191200C59ADA /* Core */ = {
@@ -497,6 +508,7 @@
 				3CA0128128696DF800148376 /* RequestManagerTests.swift in Sources */,
 				3CA0127A28696C9700148376 /* APIManagerMock.swift in Sources */,
 				3C6961BA28674E770089BE5C /* PefFinderTests.swift in Sources */,
+				3CA0129B286FFFEF00148376 /* AnimalsNearYouViewModelTestCase.swift in Sources */,
 				3CA0127F28696D9500148376 /* AnimalsRequestMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
