@@ -46,7 +46,7 @@ class Animal: Object, ObjectKeyIdentifiable, Codable {
     }
     @Persisted var rawPhotos: Data?
     
-    //    var breeds: Breed
+    var breeds: Breed
     //    var colors: APIColors
     //    let videos: [VideoLink]
     //    let status: AdoptionStatus
@@ -76,6 +76,7 @@ class Animal: Object, ObjectKeyIdentifiable, Codable {
         self.gender = .male
         self.size = .small
         self.coat = .curly
+        self.breeds = Breed()
     }
     
     enum CodingKeys: String, CodingKey {
@@ -91,6 +92,7 @@ class Animal: Object, ObjectKeyIdentifiable, Codable {
         case gender
         case size
         case coat
+        case breeds
     }
     
     required init(from decoder: Decoder) throws {
@@ -106,6 +108,7 @@ class Animal: Object, ObjectKeyIdentifiable, Codable {
         self.gender = try container.decode(Gender.self, forKey: .gender)
         self.size = try container.decode(Size.self, forKey: .size)
         self.coat = try container.decode(Coat?.self, forKey: .coat)
+        self.breeds = try container.decode(Breed.self, forKey: .breeds)
         let photos = try container.decode([PhotoSizes].self, forKey: .photos)
         
         self.rawUrl = url.absoluteString
@@ -126,6 +129,7 @@ class Animal: Object, ObjectKeyIdentifiable, Codable {
         try container.encode(size, forKey: .size)
         try container.encode(coat, forKey: .coat)
         try container.encode(photos, forKey: .photos)
+        try container.encode(breeds, forKey: .breeds)
     }
 }
 

@@ -13,8 +13,8 @@ struct AnimalsNearYouView: View {
     var body: some View {
         NavigationView {
             List {
-//                ForEach(viewModel.animals) { animal in
-                ForEach(viewModel.animalsInDatabase) { animal in
+                ForEach(viewModel.animals) { animal in
+//                ForEach(viewModel.animalsInDatabase) { animal in
                     AnimalRow(animal: animal)
                 }
                 

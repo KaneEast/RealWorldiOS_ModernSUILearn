@@ -11,17 +11,15 @@ struct AnimalRow: View {
     let animal: Animal
     
     var animalName: String
-    var animalType: String
     var animalDescription: String
     var animalBreedAndType: String {
-//        "\(animal.breeds) \(animalType)"
-        "\(animalType)"
+        //        "\(animal.breeds) \(animal.type)"
+        "\(animal.type)"
     }
     
     init(animal: Animal) {
         self.animal = animal
         animalName = animal.name
-        animalType = animal.type
         animalDescription = animal.descriptionM ?? ""
     }
     
@@ -35,18 +33,19 @@ struct AnimalRow: View {
                     .font(Font.custom("sheep_sans", size: 18, relativeTo: .title3))
                 Text(animalBreedAndType)
                     .font(Font.custom("sheep_sans", size: 15, relativeTo: .callout))
-                if let description = animal.descriptionM {
-                    Text(description)
-                        .lineLimit(2)
-                        .font(.footnote)
-                }
 
+                Text(animal.descriptionM ?? "")
+                    .lineLimit(2)
+                    .font(.footnote)
+                
                 HStack {
-                    Text(NSLocalizedString(animal.age.rawValue, comment: ""))
-//                        .modifier(AnimalAttributesCard(color: animal.age.color))
-                    Text(NSLocalizedString(animal.gender.rawValue, comment: ""))
-//                        .modifier(AnimalAttributesCard(color: .pink))
+                    Text(animal.age.rawValue)
+                        .modifier(AnimalAttributesCard(color: animal.age.color))
+                    
+                    Text(animal.gender.rawValue)
+                        .modifier(AnimalAttributesCard(color: .pink))
                 }
+                
             }
             .lineLimit(1)
         }
@@ -80,12 +79,12 @@ struct AnimalRow: View {
 
 struct AnimalRow_Previews: PreviewProvider {
     static var previews: some View {
-//        if let animal = CoreDataHelper.getTestAnimalEntity() {
-//            AnimalRow(animal: Animal())
-//        }
+        //        if let animal = CoreDataHelper.getTestAnimalEntity() {
+        //            AnimalRow(animal: Animal())
+        //        }
         
         AnimalRow(animal: Animal())
-//        Text("No Preview Now")
+        //        Text("No Preview Now")
     }
 }
 

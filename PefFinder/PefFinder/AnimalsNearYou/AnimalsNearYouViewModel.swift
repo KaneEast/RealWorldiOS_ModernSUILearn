@@ -46,10 +46,12 @@ class AnimalsNearYouViewModel: ObservableObject {
         
         // save first page
         if self.animals.isEmpty {
+            self.animals = animals
             PefStore.shared.saveAnimals(animals: animals)
+        } else {
+            self.animals += animals
         }
         
-        self.animals = animals
         hasMoreAnimals = !animals.isEmpty
     }
     
