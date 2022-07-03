@@ -17,7 +17,8 @@ final class AnimalsNearYouViewModelTestCase: XCTestCase {
         super.setUp()
         viewModel = AnimalsNearYouViewModel(
             isLoading: true,
-            animalFetcher: AnimalsFetcherMock()
+            animalFetcher: AnimalsFetcherMock(),
+            animalStore: PefStore.shared
         )
     }
     
@@ -36,7 +37,8 @@ final class AnimalsNearYouViewModelTestCase: XCTestCase {
     func testFetchAnimalsEmptyResponse() async {
         viewModel = AnimalsNearYouViewModel(
             isLoading: true,
-            animalFetcher: EmptyResponseAnimalsFetcherMock()
+            animalFetcher: EmptyResponseAnimalsFetcherMock(),
+            animalStore: PefStore.shared
         )
         await viewModel.fetchAnimals()
         

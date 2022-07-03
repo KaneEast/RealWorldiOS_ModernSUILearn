@@ -32,6 +32,22 @@
 		3CA01295286C349A00148376 /* AnimalsFetcherMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA01294286C349A00148376 /* AnimalsFetcherMock.swift */; };
 		3CA01298286FFE7F00148376 /* AnimalAttributesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA01297286FFE7F00148376 /* AnimalAttributesCard.swift */; };
 		3CA0129B286FFFEF00148376 /* AnimalsNearYouViewModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0129A286FFFEF00148376 /* AnimalsNearYouViewModelTestCase.swift */; };
+		3CA0129E287016E400148376 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0129D287016E400148376 /* SearchView.swift */; };
+		3CA012A0287016FB00148376 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0129F287016FB00148376 /* SearchViewModel.swift */; };
+		3CA012A22870224B00148376 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012A12870224B00148376 /* Types.swift */; };
+		3CA012A62870271C00148376 /* AnimalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012A52870271C00148376 /* AnimalListView.swift */; };
+		3CA012A82870277400148376 /* AnimalDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012A72870277400148376 /* AnimalDetailsView.swift */; };
+		3CA012AB287027F500148376 /* AnimalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012AA287027F500148376 /* AnimalHeaderView.swift */; };
+		3CA012AD287028A200148376 /* AnimalDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012AC287028A200148376 /* AnimalDetailRow.swift */; };
+		3CA012AF287028E900148376 /* AnimalDetailCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012AE287028E900148376 /* AnimalDetailCard.swift */; };
+		3CA012B12870973A00148376 /* AnimalSearcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012B02870973A00148376 /* AnimalSearcherService.swift */; };
+		3CA012B328709B3D00148376 /* AnimalSearcherMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012B228709B3D00148376 /* AnimalSearcherMock.swift */; };
+		3CA012B528709C9B00148376 /* FilterAnimals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012B428709C9B00148376 /* FilterAnimals.swift */; };
+		3CA012B728709D4700148376 /* SearchFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012B628709D4700148376 /* SearchFilterView.swift */; };
+		3CA012B928709E3300148376 /* SuggestionsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012B828709E3300148376 /* SuggestionsGrid.swift */; };
+		3CA012BB28709E7E00148376 /* AnimalTypeSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012BA28709E7E00148376 /* AnimalTypeSuggestionView.swift */; };
+		3CA012BD28709EBA00148376 /* EmptyResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012BC28709EBA00148376 /* EmptyResultsView.swift */; };
+		3CA012C228717B4D00148376 /* SearchViewModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012C128717B4D00148376 /* SearchViewModelTestCase.swift */; };
 		3CA138462868198600C59ADA /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA138452868198600C59ADA /* RequestProtocol.swift */; };
 		3CA13848286819B100C59ADA /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA13847286819B100C59ADA /* RequestType.swift */; };
 		3CA1384A28681BDC00C59ADA /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA1384928681BDC00C59ADA /* NetworkError.swift */; };
@@ -92,6 +108,22 @@
 		3CA01294286C349A00148376 /* AnimalsFetcherMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsFetcherMock.swift; sourceTree = "<group>"; };
 		3CA01297286FFE7F00148376 /* AnimalAttributesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalAttributesCard.swift; sourceTree = "<group>"; };
 		3CA0129A286FFFEF00148376 /* AnimalsNearYouViewModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsNearYouViewModelTestCase.swift; sourceTree = "<group>"; };
+		3CA0129D287016E400148376 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		3CA0129F287016FB00148376 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		3CA012A12870224B00148376 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		3CA012A52870271C00148376 /* AnimalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalListView.swift; sourceTree = "<group>"; };
+		3CA012A72870277400148376 /* AnimalDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetailsView.swift; sourceTree = "<group>"; };
+		3CA012AA287027F500148376 /* AnimalHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalHeaderView.swift; sourceTree = "<group>"; };
+		3CA012AC287028A200148376 /* AnimalDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetailRow.swift; sourceTree = "<group>"; };
+		3CA012AE287028E900148376 /* AnimalDetailCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetailCard.swift; sourceTree = "<group>"; };
+		3CA012B02870973A00148376 /* AnimalSearcherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalSearcherService.swift; sourceTree = "<group>"; };
+		3CA012B228709B3D00148376 /* AnimalSearcherMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalSearcherMock.swift; sourceTree = "<group>"; };
+		3CA012B428709C9B00148376 /* FilterAnimals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterAnimals.swift; sourceTree = "<group>"; };
+		3CA012B628709D4700148376 /* SearchFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterView.swift; sourceTree = "<group>"; };
+		3CA012B828709E3300148376 /* SuggestionsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsGrid.swift; sourceTree = "<group>"; };
+		3CA012BA28709E7E00148376 /* AnimalTypeSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalTypeSuggestionView.swift; sourceTree = "<group>"; };
+		3CA012BC28709EBA00148376 /* EmptyResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResultsView.swift; sourceTree = "<group>"; };
+		3CA012C128717B4D00148376 /* SearchViewModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTestCase.swift; sourceTree = "<group>"; };
 		3CA138452868198600C59ADA /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		3CA13847286819B100C59ADA /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		3CA1384928681BDC00C59ADA /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -158,17 +190,16 @@
 		3C6961A728674E750089BE5C /* PefFinder */ = {
 			isa = PBXGroup;
 			children = (
+				3CA012A9287027BD00148376 /* AnimalDetail */,
+				3CA0129C287016B600148376 /* Search */,
 				3CA13867286831C000C59ADA /* AnimalsNearYou */,
-				3CA138432868191200C59ADA /* Core */,
 				3CA01296286FFE6700148376 /* Styles */,
+				3CA012A32870270200148376 /* PFFoundation */,
+				3CA138432868191200C59ADA /* Core */,
 				3C6961A828674E750089BE5C /* PefFinderApp.swift */,
 				3C6961AA28674E750089BE5C /* ContentView.swift */,
-				3CA012702869679D00148376 /* AccessTokenManager.swift */,
-				3CA012722869680000148376 /* AppUserDefaultsKeys.swift */,
-				3CA01290286C1E8F00148376 /* RealmMockHelper.swift */,
 				3C6961AC28674E770089BE5C /* Assets.xcassets */,
 				3C6961AE28674E770089BE5C /* Preview Content */,
-				3CA0128E286B523C00148376 /* RealmMigrator.swift */,
 			);
 			path = PefFinder;
 			sourceTree = "<group>";
@@ -185,6 +216,7 @@
 		3C6961B828674E770089BE5C /* PefFinderTests */ = {
 			isa = PBXGroup;
 			children = (
+				3CA012C028717B4000148376 /* Search */,
 				3CA01299286FFFD600148376 /* AnimalsNearYou */,
 				3CA0127628696A8F00148376 /* Core */,
 				3C6961B928674E770089BE5C /* PefFinderTests.swift */,
@@ -260,11 +292,84 @@
 			path = AnimalsNearYou;
 			sourceTree = "<group>";
 		};
+		3CA0129C287016B600148376 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3CA012BE28709F3300148376 /* Views */,
+				3CA0129F287016FB00148376 /* SearchViewModel.swift */,
+				3CA012B228709B3D00148376 /* AnimalSearcherMock.swift */,
+				3CA012B02870973A00148376 /* AnimalSearcherService.swift */,
+				3CA012A12870224B00148376 /* Types.swift */,
+				3CA012B428709C9B00148376 /* FilterAnimals.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		3CA012A32870270200148376 /* PFFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				3CA0128E286B523C00148376 /* RealmMigrator.swift */,
+				3CA01290286C1E8F00148376 /* RealmMockHelper.swift */,
+				3CA012722869680000148376 /* AppUserDefaultsKeys.swift */,
+				3CA012A42870270D00148376 /* Views */,
+			);
+			path = PFFoundation;
+			sourceTree = "<group>";
+		};
+		3CA012A42870270D00148376 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3CA012A52870271C00148376 /* AnimalListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3CA012A9287027BD00148376 /* AnimalDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3CA012A72870277400148376 /* AnimalDetailsView.swift */,
+				3CA012AA287027F500148376 /* AnimalHeaderView.swift */,
+				3CA012AC287028A200148376 /* AnimalDetailRow.swift */,
+				3CA012AE287028E900148376 /* AnimalDetailCard.swift */,
+			);
+			path = AnimalDetail;
+			sourceTree = "<group>";
+		};
+		3CA012BE28709F3300148376 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3CA012BC28709EBA00148376 /* EmptyResultsView.swift */,
+				3CA012B828709E3300148376 /* SuggestionsGrid.swift */,
+				3CA012BA28709E7E00148376 /* AnimalTypeSuggestionView.swift */,
+				3CA012B628709D4700148376 /* SearchFilterView.swift */,
+				3CA0129D287016E400148376 /* SearchView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3CA012BF28709F8E00148376 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3CA1386028682EC100C59ADA /* AnimalsNearYouView.swift */,
+				3CA0126E2868AB9C00148376 /* AnimalRow.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3CA012C028717B4000148376 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3CA012C128717B4D00148376 /* SearchViewModelTestCase.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		3CA138432868191200C59ADA /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				3CA0128B286B4B9F00148376 /* PefStore */,
 				3CA1384F28681F3800C59ADA /* DataParser.swift */,
+				3CA012702869679D00148376 /* AccessTokenManager.swift */,
+				3CA0128B286B4B9F00148376 /* PefStore */,
 				3CA138582868298B00C59ADA /* Domain */,
 				3CA138442868196300C59ADA /* API */,
 			);
@@ -324,9 +429,8 @@
 		3CA13867286831C000C59ADA /* AnimalsNearYou */ = {
 			isa = PBXGroup;
 			children = (
+				3CA012BF28709F8E00148376 /* Views */,
 				3CA1386428682F1600C59ADA /* AnimalsNearYouViewModel.swift */,
-				3CA1386028682EC100C59ADA /* AnimalsNearYouView.swift */,
-				3CA0126E2868AB9C00148376 /* AnimalRow.swift */,
 				3CA01292286C321600148376 /* FetchAnimalsService.swift */,
 				3CA01294286C349A00148376 /* AnimalsFetcherMock.swift */,
 			);
@@ -475,25 +579,40 @@
 				3C6961A928674E750089BE5C /* PefFinderApp.swift in Sources */,
 				3CA01295286C349A00148376 /* AnimalsFetcherMock.swift in Sources */,
 				3C6961D328674E990089BE5C /* APIConstants.swift in Sources */,
+				3CA012B728709D4700148376 /* SearchFilterView.swift in Sources */,
 				3CA138532868203100C59ADA /* AuthTokenRequest.swift in Sources */,
 				3CA0128F286B523C00148376 /* RealmMigrator.swift in Sources */,
 				3CA0126F2868AB9C00148376 /* AnimalRow.swift in Sources */,
+				3CA012AB287027F500148376 /* AnimalHeaderView.swift in Sources */,
+				3CA012A82870277400148376 /* AnimalDetailsView.swift in Sources */,
 				3CA1384E28681EBB00C59ADA /* RequestManager.swift in Sources */,
 				3CA1384A28681BDC00C59ADA /* NetworkError.swift in Sources */,
+				3CA012AD287028A200148376 /* AnimalDetailRow.swift in Sources */,
 				3CA012712869679D00148376 /* AccessTokenManager.swift in Sources */,
 				3CA1386128682EC100C59ADA /* AnimalsNearYouView.swift in Sources */,
 				3CA138462868198600C59ADA /* RequestProtocol.swift in Sources */,
 				3CA13848286819B100C59ADA /* RequestType.swift in Sources */,
 				3CA01293286C321600148376 /* FetchAnimalsService.swift in Sources */,
+				3CA012B928709E3300148376 /* SuggestionsGrid.swift in Sources */,
+				3CA012BD28709EBA00148376 /* EmptyResultsView.swift in Sources */,
 				3CA1384C28681DA800C59ADA /* APIManager.swift in Sources */,
+				3CA012B528709C9B00148376 /* FilterAnimals.swift in Sources */,
 				3CA012732869680000148376 /* AppUserDefaultsKeys.swift in Sources */,
+				3CA012B12870973A00148376 /* AnimalSearcherService.swift in Sources */,
 				3CA13857286828F600C59ADA /* AnimalsRequest.swift in Sources */,
+				3CA012AF287028E900148376 /* AnimalDetailCard.swift in Sources */,
 				3CA0128D286B4BBA00148376 /* PefStore.swift in Sources */,
 				3CA1385028681F3800C59ADA /* DataParser.swift in Sources */,
+				3CA0129E287016E400148376 /* SearchView.swift in Sources */,
+				3CA012A62870271C00148376 /* AnimalListView.swift in Sources */,
 				3CA1386528682F1600C59ADA /* AnimalsNearYouViewModel.swift in Sources */,
+				3CA012A22870224B00148376 /* Types.swift in Sources */,
 				3CA1385D28682A2400C59ADA /* Animal.swift in Sources */,
+				3CA012BB28709E7E00148376 /* AnimalTypeSuggestionView.swift in Sources */,
+				3CA012A0287016FB00148376 /* SearchViewModel.swift in Sources */,
 				3CA01291286C1E8F00148376 /* RealmMockHelper.swift in Sources */,
 				3CA01298286FFE7F00148376 /* AnimalAttributesCard.swift in Sources */,
+				3CA012B328709B3D00148376 /* AnimalSearcherMock.swift in Sources */,
 				3CA1385B286829AC00C59ADA /* AnimalsContainer.swift in Sources */,
 				3CA1385F28682B9700C59ADA /* Organization.swift in Sources */,
 				3CA138552868211000C59ADA /* APIToken.swift in Sources */,
@@ -504,6 +623,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CA012C228717B4D00148376 /* SearchViewModelTestCase.swift in Sources */,
 				3CA0127D28696CD600148376 /* AccessTokenTestHelper.swift in Sources */,
 				3CA0128128696DF800148376 /* RequestManagerTests.swift in Sources */,
 				3CA0127A28696C9700148376 /* APIManagerMock.swift in Sources */,

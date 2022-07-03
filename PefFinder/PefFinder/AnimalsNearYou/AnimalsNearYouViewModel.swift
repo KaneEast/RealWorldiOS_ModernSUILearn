@@ -24,6 +24,7 @@ class AnimalsNearYouViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var hasMoreAnimals = true
     private(set) var page = 1
+    var animalStore: AnimalStore
     
     
     // animalsInDatabase observe
@@ -32,9 +33,10 @@ class AnimalsNearYouViewModel: ObservableObject {
         where: { $0.id != nil }
     ) var animalsInDatabase
     
-    init(isLoading: Bool = true, animalFetcher: AnimalsFetcher) {
+    init(isLoading: Bool = true, animalFetcher: AnimalsFetcher, animalStore: AnimalStore) {
         self.isLoading = isLoading
         self.animalFetcher = animalFetcher
+        self.animalStore = animalStore
     }
     
     func fetchAnimals() async {
@@ -46,7 +48,7 @@ class AnimalsNearYouViewModel: ObservableObject {
         // save first page
         if self.animals.isEmpty {
             self.animals = animals
-            PefStore.shared.saveAnimals(animals: animals)
+            animalStore.saveAnimals(animals: animals)
         } else {
             self.animals += animals
         }

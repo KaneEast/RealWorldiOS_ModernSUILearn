@@ -10,19 +10,18 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-//            AnimalsNearYouView(viewModel: AnimalsNearYouViewModel())
             AnimalsNearYouView(
               viewModel: AnimalsNearYouViewModel(
-                animalFetcher: FetchAnimalsService(requestManager: RequestManager())
+                animalFetcher: FetchAnimalsService(requestManager: RequestManager()), animalStore: PefStore.shared
               )
             )
             .tabItem {
                 Label("Near you", systemImage: "location")
             }
             
-            Text("test")
+            SearchView()
             .tabItem {
-                Label("Test", systemImage: "location")
+                Label("Search", systemImage: "magnifyingglass")
             }
         }
     }

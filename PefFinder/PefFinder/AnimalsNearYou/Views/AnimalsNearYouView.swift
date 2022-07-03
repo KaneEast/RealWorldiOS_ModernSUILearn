@@ -12,12 +12,22 @@ struct AnimalsNearYouView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.animals) { animal in
-//                ForEach(viewModel.animalsInDatabase) { animal in
-                    AnimalRow(animal: animal)
-                }
-                
+//            List {
+//                ForEach(viewModel.animals) { animal in
+////                ForEach(viewModel.animalsInDatabase) { animal in
+//                    AnimalRow(animal: animal)
+//                }
+//                
+//                if !viewModel.animals.isEmpty && viewModel.hasMoreAnimals {
+//                  ProgressView("Finding more animals...")
+//                    .padding()
+//                    .frame(maxWidth: .infinity)
+//                    .task {
+//                      await viewModel.fetchMoreAnimals()
+//                    }
+//                }
+//            }
+            AnimalListView(animals: viewModel.animals) {
                 if !viewModel.animals.isEmpty && viewModel.hasMoreAnimals {
                   ProgressView("Finding more animals...")
                     .padding()
@@ -27,6 +37,7 @@ struct AnimalsNearYouView: View {
                     }
                 }
             }
+            
             .task {
                 await viewModel.fetchAnimals()
             }
@@ -48,7 +59,8 @@ struct AnimalsNearYouView_Previews: PreviewProvider {
 //                animalFetcher: FetchAnimalsService(requestManager: RequestManager())
 //            )
             viewModel: AnimalsNearYouViewModel(
-              animalFetcher: AnimalsFetcherMock()
+              animalFetcher: AnimalsFetcherMock(),
+              animalStore: PefStore.shared
             )
 
         )

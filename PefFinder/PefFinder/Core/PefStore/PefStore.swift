@@ -8,7 +8,13 @@
 import Foundation
 import RealmSwift
 
-class PefStore {
+protocol AnimalStore {
+    func saveAnimals(animals: [Animal])
+    func getAnimals() ->  [Animal]
+    func clearAnimals()
+}
+
+class PefStore: AnimalStore {
     static let shared = PefStore()
     private let realm = try! Realm()
     
