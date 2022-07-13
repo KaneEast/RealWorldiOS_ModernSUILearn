@@ -2,12 +2,21 @@
   "object": {
     "pins": [
       {
+        "package": "PefFinderOnboarding",
+        "repositoryURL": "https://github.com/KaneEast/PefFinderOnboarding",
+        "state": {
+          "branch": "main",
+          "revision": "3cb4fb3b61241c0a9947fc8b72d4342d589f47cc",
+          "version": null
+        }
+      },
+      {
         "package": "RealmDatabase",
         "repositoryURL": "https://github.com/realm/realm-core",
         "state": {
           "branch": null,
-          "revision": "fd48276f88f3d55dbdcdc9e8cbf32541811d5865",
-          "version": "12.1.0"
+          "revision": "55a48c287b5e3a8ca129c257ec7e3b92bcb2a05f",
+          "version": "12.3.0"
         }
       },
       {
@@ -15,7 +24,7 @@
         "repositoryURL": "https://github.com/realm/realm-swift",
         "state": {
           "branch": "master",
-          "revision": "9f7a605dfcf6a60e019a296dc8d91c3b23837a82",
+          "revision": "2e5aa3151d40daf0a4e2620a9c0e270632df065d",
           "version": null
         }
       }
