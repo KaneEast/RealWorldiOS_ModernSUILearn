@@ -62,7 +62,9 @@ final class PetRankingViewModel: ObservableObject {
     var animal: Animal
     var ranking: Int {
         didSet {
-            animal.ranking = ranking
+            try? PefStore.shared.realm.write {
+                animal.ranking = ranking
+            }
             objectWillChange.send()
         }
     }

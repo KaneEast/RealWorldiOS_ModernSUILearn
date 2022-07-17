@@ -62,11 +62,8 @@
 		3CA1385F28682B9700C59ADA /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA1385E28682B9700C59ADA /* Organization.swift */; };
 		3CA1386128682EC100C59ADA /* AnimalsNearYouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA1386028682EC100C59ADA /* AnimalsNearYouView.swift */; };
 		3CA1386528682F1600C59ADA /* AnimalsNearYouViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA1386428682F1600C59ADA /* AnimalsNearYouViewModel.swift */; };
-<<<<<<< HEAD
 		3CA64675288384EC00EBBF63 /* LoadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA64674288384EC00EBBF63 /* LoadingAnimation.swift */; };
 		3CA6467728838D7500EBBF63 /* PetRankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA6467628838D7500EBBF63 /* PetRankingView.swift */; };
-=======
->>>>>>> 2e03cb479ff6fe377993b64756ca177fb248ed0d
 		3CC16DD12877251F00D9B98A /* PefFinderOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 3CC16DD02877251F00D9B98A /* PefFinderOnboarding */; };
 /* End PBXBuildFile section */
 

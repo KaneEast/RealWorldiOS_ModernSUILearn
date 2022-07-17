@@ -16,7 +16,7 @@ protocol AnimalStore {
 
 class PefStore: AnimalStore {
     static let shared = PefStore()
-    private let realm = try! Realm()
+    let realm = try! Realm()
     
     func saveAnimals(animals: [Animal]) {
         try! realm.write {
