@@ -31,12 +31,12 @@ struct AnimalDetailsView: View {
                             zoomed: $zoomed,
                             favorited: $favorited,
                             geometry: geometry)
-                            .onTapGesture { zoomed.toggle() }
+                        .onTapGesture { zoomed.toggle() }
                         Divider()
                             .blur(radius: zoomed ? 20 : 0)
-                        //            PetRankingView(animal: animal)
-                        //              .padding()
-                        //              .blur(radius: zoomed ? 20 : 0)
+                        PetRankingView(animal: animal)
+                            .padding()
+                            .blur(radius: zoomed ? 20 : 0)
                         AnimalDetailRow(animal: animal)
                             .blur(radius: zoomed ? 20 : 0)
                         Divider()

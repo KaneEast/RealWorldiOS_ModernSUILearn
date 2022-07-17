@@ -56,7 +56,7 @@ class Animal: Object, ObjectKeyIdentifiable, Codable {
     //    var contact: Contact
     //    let publishedAt: String?
     //    let distance: Double?
-    //    var ranking: Int? = 0
+    @Persisted var ranking: Int? = 0
     
     var picture: URL? {
         photos.first?.medium ?? photos.first?.large

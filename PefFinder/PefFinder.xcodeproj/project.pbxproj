@@ -62,6 +62,9 @@
 		3CA1385F28682B9700C59ADA /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA1385E28682B9700C59ADA /* Organization.swift */; };
 		3CA1386128682EC100C59ADA /* AnimalsNearYouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA1386028682EC100C59ADA /* AnimalsNearYouView.swift */; };
 		3CA1386528682F1600C59ADA /* AnimalsNearYouViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA1386428682F1600C59ADA /* AnimalsNearYouViewModel.swift */; };
+		3CA64675288384EC00EBBF63 /* LoadingAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA64674288384EC00EBBF63 /* LoadingAnimation.swift */; };
+		3CA6467728838D7500EBBF63 /* PetRankingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA6467628838D7500EBBF63 /* PetRankingView.swift */; };
+		3CC16DD12877251F00D9B98A /* PefFinderOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 3CC16DD02877251F00D9B98A /* PefFinderOnboarding */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,19 @@
 			remoteInfo = PefFinder;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3CA012D32871D1A600148376 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3C6961A528674E750089BE5C /* PefFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PefFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +154,8 @@
 		3CA1385E28682B9700C59ADA /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		3CA1386028682EC100C59ADA /* AnimalsNearYouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsNearYouView.swift; sourceTree = "<group>"; };
 		3CA1386428682F1600C59ADA /* AnimalsNearYouViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsNearYouViewModel.swift; sourceTree = "<group>"; };
+		3CA64674288384EC00EBBF63 /* LoadingAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimation.swift; sourceTree = "<group>"; };
+		3CA6467628838D7500EBBF63 /* PetRankingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetRankingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CA0128628698B9100148376 /* RealmSwift in Frameworks */,
+				3CC16DD12877251F00D9B98A /* PefFinderOnboarding in Frameworks */,
 				3CA0128428698B9100148376 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +339,8 @@
 			isa = PBXGroup;
 			children = (
 				3CA012A52870271C00148376 /* AnimalListView.swift */,
+				3CA64674288384EC00EBBF63 /* LoadingAnimation.swift */,
+				3CA6467628838D7500EBBF63 /* PetRankingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -447,6 +468,7 @@
 				3C6961A128674E750089BE5C /* Sources */,
 				3C6961A228674E750089BE5C /* Frameworks */,
 				3C6961A328674E750089BE5C /* Resources */,
+				3CA012D32871D1A600148376 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -456,6 +478,7 @@
 			packageProductDependencies = (
 				3CA0128328698B9100148376 /* Realm */,
 				3CA0128528698B9100148376 /* RealmSwift */,
+				3CC16DD02877251F00D9B98A /* PefFinderOnboarding */,
 			);
 			productName = PefFinder;
 			productReference = 3C6961A528674E750089BE5C /* PefFinder.app */;
@@ -531,6 +554,7 @@
 			mainGroup = 3C69619C28674E750089BE5C;
 			packageReferences = (
 				3CA0128228698B9100148376 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				3CC16DCF2877251F00D9B98A /* XCRemoteSwiftPackageReference "PefFinderOnboarding" */,
 			);
 			productRefGroup = 3C6961A628674E750089BE5C /* Products */;
 			projectDirPath = "";
@@ -584,7 +608,9 @@
 				3CA0128F286B523C00148376 /* RealmMigrator.swift in Sources */,
 				3CA0126F2868AB9C00148376 /* AnimalRow.swift in Sources */,
 				3CA012AB287027F500148376 /* AnimalHeaderView.swift in Sources */,
+				3CA64675288384EC00EBBF63 /* LoadingAnimation.swift in Sources */,
 				3CA012A82870277400148376 /* AnimalDetailsView.swift in Sources */,
+				3CA6467728838D7500EBBF63 /* PetRankingView.swift in Sources */,
 				3CA1384E28681EBB00C59ADA /* RequestManager.swift in Sources */,
 				3CA1384A28681BDC00C59ADA /* NetworkError.swift in Sources */,
 				3CA012AD287028A200148376 /* AnimalDetailRow.swift in Sources */,
@@ -952,6 +978,14 @@
 				kind = branch;
 			};
 		};
+		3CC16DCF2877251F00D9B98A /* XCRemoteSwiftPackageReference "PefFinderOnboarding" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/KaneEast/PefFinderOnboarding";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -964,6 +998,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3CA0128228698B9100148376 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		3CC16DD02877251F00D9B98A /* PefFinderOnboarding */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3CC16DCF2877251F00D9B98A /* XCRemoteSwiftPackageReference "PefFinderOnboarding" */;
+			productName = PefFinderOnboarding;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

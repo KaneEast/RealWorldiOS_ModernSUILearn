@@ -13,17 +13,18 @@ enum RealmMigrator {
         migration: Migration,
         oldSchemaVersion: UInt64
     ) {
-        if oldSchemaVersion < 1 {
+        if oldSchemaVersion < 2 {
             migration.enumerateObjects(
                 ofType: Animal.className()
             ) { _, newObject in
-                //newObject?["descriptionM"] = "dumy"
+                newObject?["ranking"] = 0
+                
             }
         }
     }
     
     static var configuration: Realm.Configuration {
-      Realm.Configuration(schemaVersion: 1, migrationBlock: migrationBlock)
+      Realm.Configuration(schemaVersion: 2, migrationBlock: migrationBlock)
     }
 
 }
