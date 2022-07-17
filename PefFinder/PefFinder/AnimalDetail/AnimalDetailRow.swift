@@ -14,7 +14,7 @@ struct AnimalDetailRow: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 AnimalDetailCard(
-                    title: "Age",
+                    title: "Age".localized,
                     value: animal.age.rawValue,
                     color: animal.age.color
                 )

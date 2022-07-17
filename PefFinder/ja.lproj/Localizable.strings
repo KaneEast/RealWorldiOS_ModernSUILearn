@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  PefFinder
+
+  Created by Kane on 2022/07/17.
+  
+*/
+
+"Age" = "年齢";
+"Gender" = "性別";
+"Size" = "サイズ";
+"Coat" = "コート";
+"Adult" = "成年";
+"Male" = "オス";
+"Female" = "メス";
+"Unknown" = "Unknown";
+"Short" = "Short";
+"Details" = "詳細";
+"Contact" = "Contact";
+"Location" = "Location";
+"Rank me!" = "Rank me!";
+"Animals near you" = "Animals near you";
+"Near you" = "Near you";
+"Search" = "Search";
+"Young" = "Young";
