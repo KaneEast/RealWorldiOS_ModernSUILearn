@@ -7,10 +7,9 @@
 
 import Foundation
 
-// https://www.petfinder.com/developers/v2/docs/
 enum APIConstants {
     static let host = "api.petfinder.com"
     static let grantType = "client_credentials"
-    static let clientId = "Wu9pt7mdcWe10ZwpmCrVjssb3aPo8D3dXvtBLh2aGVvQVpp33P"
-    static let clientSecret = "bK7gzaMifKxcrL8KBBKHrWuHJwEq47kZcbO0Rv7R"
+    static let clientId = "t55yQ6orhlhfOJ9I4UjT7RcAwKfFlsGHwf2Vtf7hQLCHeFgmiO"
+    static let clientSecret = "5oMm9NmP0Aut7r1Q78M9U56NPe21LBGOxIVv6lBo"
 }

@@ -32,10 +32,7 @@ extension AccessTokenManager: AccessTokenManagerProtocol {
     }
     
     func fetchToken() -> String {
-        guard let token = accessToken else {
-            return ""
-        }
-        return token
+        accessToken ?? ""
     }
     
     func refreshWith(apiToken: APIToken) throws {

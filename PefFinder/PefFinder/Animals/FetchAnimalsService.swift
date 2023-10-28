@@ -18,16 +18,12 @@ struct FetchAnimalsService {
 // MARK: - AnimalFetcher
 extension FetchAnimalsService: AnimalsFetcher {
     func fetchAnimals(page: Int) async -> [Animal] {
-        let requestData = AnimalsRequest.getAnimalsWith(
-            page: page,
-            latitude: nil,
-            longitude: nil
-        )
+        let requestData = AnimalsRequest.getAnimalsWith(page: page)
         do {
-            let animalsContainer: AnimalsContainer = try await
-            requestManager.perform(requestData)
+            let animalsContainer: AnimalsContainer = try await requestManager.perform(requestData)
             return animalsContainer.animals
         } catch {
+            // TODO: k
             print(error.localizedDescription)
             return []
         }

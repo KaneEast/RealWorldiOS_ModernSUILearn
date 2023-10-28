@@ -15,10 +15,8 @@ protocol AnimalsFetcher {
 // @MainActorアノテーションは、このクラスで実行されるすべてのコードがメインスレッド内にあることを確認します。
 // FetchAnimalsServiceから結果を受け取ると、実行がメインスレッドに戻るため、
 // メインスレッドの外部でUIを更新することを恐れずに、公開プロパティを更新できます。
-@MainActor
-class AnimalsNearYouViewModel: ObservableObject {
+@MainActor class AnimalsViewModel: ObservableObject {
     private let animalFetcher: AnimalsFetcher
-    
     
     @Published var animals: [Animal] = []
     @Published var isLoading: Bool = false
@@ -26,12 +24,8 @@ class AnimalsNearYouViewModel: ObservableObject {
     private(set) var page = 1
     var animalStore: AnimalStore
     
-    
     // animalsInDatabase observe
-    @ObservedResults(
-        Animal.self,
-        where: { $0.id != nil }
-    ) var animalsInDatabase
+    @ObservedResults(Animal.self, where: { $0.id != nil }) var animalsInDatabase
     
     init(isLoading: Bool = true, animalFetcher: AnimalsFetcher, animalStore: AnimalStore) {
         self.isLoading = isLoading
@@ -60,5 +54,4 @@ class AnimalsNearYouViewModel: ObservableObject {
         page += 1
         await fetchAnimals()
     }
-    
 }

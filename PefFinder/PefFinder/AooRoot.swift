@@ -10,11 +10,8 @@ import PefFinderOnboarding
 
 @main
 struct PefFinderApp: App {
-    
-    // 1
     @AppStorage(AppUserDefaultsKeys.onboarding)
     var shouldPresentOnboarding = true
-    // 2
     var onboardingModels: [OnboardingModel] {
         [
             OnboardingModel(
@@ -38,18 +35,12 @@ struct PefFinderApp: App {
         ]
     }
     
-    
     var body: some Scene {
         WindowGroup {
             ContentView()
-            .fullScreenCover(
-                isPresented: $shouldPresentOnboarding, onDismiss: nil
-            ) {
-                // 2
+            .fullScreenCover(isPresented: $shouldPresentOnboarding, onDismiss: nil) {
                 PetSaveOnboardingView(items: onboardingModels)
-                    .onSkip { // 3
-                        shouldPresentOnboarding = false
-                    }
+                .onSkip { shouldPresentOnboarding = false }
             }
             .environment(\.realmConfiguration, RealmMigrator.configuration) // Realm Configurating
         }

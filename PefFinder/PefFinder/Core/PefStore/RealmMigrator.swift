@@ -8,17 +8,12 @@
 import RealmSwift
 
 enum RealmMigrator {
-    
-    static private func migrationBlock(
-        migration: Migration,
-        oldSchemaVersion: UInt64
-    ) {
+    static private func migrationBlock(migration: Migration, oldSchemaVersion: UInt64) {
         if oldSchemaVersion < 2 {
             migration.enumerateObjects(
                 ofType: Animal.className()
             ) { _, newObject in
                 newObject?["ranking"] = 0
-                
             }
         }
     }
@@ -26,6 +21,4 @@ enum RealmMigrator {
     static var configuration: Realm.Configuration {
       Realm.Configuration(schemaVersion: 2, migrationBlock: migrationBlock)
     }
-
 }
-

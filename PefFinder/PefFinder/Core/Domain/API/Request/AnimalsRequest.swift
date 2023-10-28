@@ -8,24 +8,15 @@
 import Foundation
 
 enum AnimalsRequest: RequestProtocol {
-    case getAnimalsWith(page: Int, latitude: Double?, longitude: Double?)
+    case getAnimalsWith(page: Int)
     case getAnimalsBy(name: String, age: String?, type: String?)
     
-    var path: String {
-        "/v2/animals"
-    }
-    
+    var path: String { "/v2/animals" }
+    var requestType: RequestType { .GET }
     var urlParams: [String: String?] {
         switch self {
-        case let .getAnimalsWith(page, latitude, longitude):
+        case let .getAnimalsWith(page):
             var params = ["page": String(page)]
-            if let latitude = latitude {
-                params["latitude"] = String(latitude)
-            }
-            
-            if let longitude = longitude {
-                params["longitude"] = String(longitude)
-            }
             params["sort"] = "random"
             return params
             
@@ -44,9 +35,5 @@ enum AnimalsRequest: RequestProtocol {
             }
             return params
         }
-    }
-
-    var requestType: RequestType {
-        .GET
     }
 }

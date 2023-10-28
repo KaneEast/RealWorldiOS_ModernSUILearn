@@ -13,7 +13,6 @@ struct AnimalRow: View {
     var animalName: String
     var animalDescription: String
     var animalBreedAndType: String {
-        //        "\(animal.breeds) \(animal.type)"
         "\(animal.type)"
     }
     
@@ -33,7 +32,7 @@ struct AnimalRow: View {
                     .font(Font.custom("sheep_sans", size: 18, relativeTo: .title3))
                 Text(animalBreedAndType)
                     .font(Font.custom("sheep_sans", size: 15, relativeTo: .callout))
-
+                
                 Text(animal.descriptionM ?? "")
                     .lineLimit(2)
                     .font(.footnote)
@@ -54,13 +53,9 @@ struct AnimalRow: View {
     var image: some View {
         // TODO: Image Cache
         AsyncImage(url: animal.picture) { image in
-            image
-                .resizable()
-                .accessibilityLabel("Image of Pet")
+            image.resizable().accessibilityLabel("Image of Pet")
         } placeholder: {
-            Image("rw-logo")
-                .resizable()
-                .accessibilityLabel("Placeholder Logo")
+            Image("rw-logo").resizable().accessibilityLabel("Placeholder Logo")
                 .overlay {
                     if animal.picture != nil {
                         ProgressView()
@@ -70,10 +65,7 @@ struct AnimalRow: View {
                             .background(.gray.opacity(0.4))
                     }
                 }
-        }
-        .aspectRatio(contentMode: .fit)
-        .frame(width: 112, height: 112)
-        .cornerRadius(8)
+        }.aspectRatio(contentMode: .fit).frame(width: 112, height: 112).cornerRadius(8)
     }
 }
 
@@ -82,9 +74,7 @@ struct AnimalRow_Previews: PreviewProvider {
         //        if let animal = CoreDataHelper.getTestAnimalEntity() {
         //            AnimalRow(animal: Animal())
         //        }
-        
         AnimalRow(animal: Animal())
-        //        Text("No Preview Now")
     }
 }
 
