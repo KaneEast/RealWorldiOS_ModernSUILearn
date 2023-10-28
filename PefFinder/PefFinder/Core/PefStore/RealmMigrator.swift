@@ -11,7 +11,7 @@ enum RealmMigrator {
     static private func migrationBlock(migration: Migration, oldSchemaVersion: UInt64) {
         if oldSchemaVersion < 2 {
             migration.enumerateObjects(
-                ofType: Animal.className()
+                ofType: AnimalEntity.className()
             ) { _, newObject in
                 newObject?["ranking"] = 0
             }
@@ -19,6 +19,8 @@ enum RealmMigrator {
     }
     
     static var configuration: Realm.Configuration {
-      Realm.Configuration(schemaVersion: 2, migrationBlock: migrationBlock)
+        let configuration = Realm.Configuration(schemaVersion: 2, migrationBlock: migrationBlock)
+        print("User Realm User file location: \(configuration.fileURL!.path)")
+        return configuration
     }
 }

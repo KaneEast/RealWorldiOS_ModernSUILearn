@@ -8,13 +8,13 @@
 import Foundation
 
 struct AnimalsFetcherMock: AnimalsFetcher {
-    func fetchAnimals(page: Int) async -> [Animal] {
-        Animal.mock
+    func fetchAnimals(page: Int) async -> [AnimalInfo] {
+        AnimalInfo.mock
     }
 }
 
 struct EmptyResponseAnimalsFetcherMock: AnimalsFetcher {
-    func fetchAnimals(page: Int) async -> [Animal] {
+    func fetchAnimals(page: Int) async -> [AnimalInfo] {
         return []
     }
 }

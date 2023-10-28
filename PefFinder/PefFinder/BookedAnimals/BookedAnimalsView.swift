@@ -8,11 +8,32 @@
 import SwiftUI
 
 struct BookedAnimalsView: View {
+    
+    @ObservedObject var viewModel: BookedAnimalsViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+//            AnimalListView(animals: viewModel.animalsInDatabase) {
+//                if !viewModel.animals.isEmpty && viewModel.hasMoreAnimals {
+//                    HStack(alignment: .center) {
+//                        LoadingAnimation().frame(maxWidth: 125, minHeight: 125)
+//                        Text("Loading more animals...")
+//                    }
+//                    .task { await viewModel.fetchMoreAnimals() }
+//                }
+//            }
+//            .task { await viewModel.fetchAnimals() }
+//            .navigationTitle("Animals")
+//            .overlay {
+//                if viewModel.isLoading && viewModel.animals.isEmpty {
+//                    ProgressView("Finding Animals...")
+//                }
+//            }
+            Text("")
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
 #Preview {
-    BookedAnimalsView()
+    BookedAnimalsView(viewModel: BookedAnimalsViewModel())
 }

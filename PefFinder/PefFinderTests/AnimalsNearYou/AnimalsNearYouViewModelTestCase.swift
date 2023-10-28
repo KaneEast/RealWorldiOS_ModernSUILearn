@@ -1,5 +1,5 @@
 //
-//  AnimalsNearYouViewModelTestCase.swift
+//  AnimalsViewModelTestCase.swift
 //  PefFinderTests
 //
 //  Created by Kanein on 2022/07/02.
@@ -9,13 +9,13 @@ import XCTest
 @testable import PefFinder
 
 @MainActor
-final class AnimalsNearYouViewModelTestCase: XCTestCase {
-    var viewModel: AnimalsNearYouViewModel!
+final class AnimalsViewModelTestCase: XCTestCase {
+    var viewModel: AnimalsViewModel!
     
     @MainActor
     override func setUp() {
         super.setUp()
-        viewModel = AnimalsNearYouViewModel(
+        viewModel = AnimalsViewModel(
             isLoading: true,
             animalFetcher: AnimalsFetcherMock(),
             animalStore: PefStore.shared
@@ -35,7 +35,7 @@ final class AnimalsNearYouViewModelTestCase: XCTestCase {
     }
     
     func testFetchAnimalsEmptyResponse() async {
-        viewModel = AnimalsNearYouViewModel(
+        viewModel = AnimalsViewModel(
             isLoading: true,
             animalFetcher: EmptyResponseAnimalsFetcherMock(),
             animalStore: PefStore.shared

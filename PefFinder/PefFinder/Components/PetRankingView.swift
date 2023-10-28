@@ -9,9 +9,9 @@ import SwiftUI
 
 struct PetRankingView: View {
     @ObservedObject var viewModel: PetRankingViewModel
-    var animal: Animal
+    var animal: AnimalEntity
     
-    init(animal: Animal) {
+    init(animal: AnimalEntity) {
         self.animal = animal
         viewModel = PetRankingViewModel(animal: animal)
     }
@@ -59,7 +59,7 @@ struct PetRankImage: View {
 }
 
 final class PetRankingViewModel: ObservableObject {
-    var animal: Animal
+    var animal: AnimalEntity
     var ranking: Int {
         didSet {
             try? PefStore.shared.realm.write {
@@ -69,7 +69,7 @@ final class PetRankingViewModel: ObservableObject {
         }
     }
     
-    init(animal: Animal) {
+    init(animal: AnimalEntity) {
         self.animal = animal
         self.ranking = animal.ranking ?? 0
     }
@@ -77,7 +77,7 @@ final class PetRankingViewModel: ObservableObject {
 
 struct PetRankingView_Previews: PreviewProvider {
     static var previews: some View {
-        if let animal = Animal.mock.first {
+        if let animal = AnimalEntity.mock.first {
             Group {
                 PetRankingView(animal: animal)
                     .padding()

@@ -1,5 +1,5 @@
 //
-//  AnimalsNearYouViewModel.swift
+//  AnimalsViewModel.swift
 //  PefFinder
 //
 //  Created by Kanein on 2022/06/26.
@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 protocol AnimalsFetcher {
-    func fetchAnimals(page: Int) async -> [Animal]
+    func fetchAnimals(page: Int) async -> [AnimalInfo]
 }
 
 // @MainActorアノテーションは、このクラスで実行されるすべてのコードがメインスレッド内にあることを確認します。
@@ -18,14 +18,11 @@ protocol AnimalsFetcher {
 @MainActor class AnimalsViewModel: ObservableObject {
     private let animalFetcher: AnimalsFetcher
     
-    @Published var animals: [Animal] = []
+    @Published var animals: [AnimalEntity] = []
     @Published var isLoading: Bool = false
     @Published var hasMoreAnimals = true
     private(set) var page = 1
     var animalStore: AnimalStore
-    
-    // animalsInDatabase observe
-    @ObservedResults(Animal.self, where: { $0.id != nil }) var animalsInDatabase
     
     init(isLoading: Bool = true, animalFetcher: AnimalsFetcher, animalStore: AnimalStore) {
         self.isLoading = isLoading
@@ -36,15 +33,17 @@ protocol AnimalsFetcher {
     func fetchAnimals() async {
         isLoading = true
         let animals = await animalFetcher.fetchAnimals(page: page)
+        let animalEntityArray = convertAnimalInfoToAnimalEntity(animals)
+        animalStore.saveAnimals(animals: animalEntityArray)
         
         self.isLoading = false
         
         // save first page
         if self.animals.isEmpty {
-            self.animals = animals
-            animalStore.saveAnimals(animals: animals)
+//            self.animals = animals
+            self.animals = animalEntityArray
         } else {
-            self.animals += animals
+            self.animals += animalEntityArray
         }
         
         hasMoreAnimals = !animals.isEmpty

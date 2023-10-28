@@ -8,6 +8,6 @@
 import Foundation
 
 struct AnimalsContainer: Decodable {
-  let animals: [Animal]
+  let animals: [AnimalInfo]
   let pagination: Pagination
 }

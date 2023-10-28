@@ -9,8 +9,8 @@ import Foundation
 import RealmSwift
 
 protocol AnimalStore {
-    func saveAnimals(animals: [Animal])
-    func getAnimals() ->  [Animal]
+    func saveAnimals(animals: [AnimalEntity])
+    func getAnimals() ->  [AnimalEntity]
     func clearAnimals()
 }
 
@@ -18,21 +18,19 @@ class PefStore: AnimalStore {
     static let shared = PefStore()
     let realm = try! Realm()
     
-    func saveAnimals(animals: [Animal]) {
-        try! realm.write {
-            realm.add(animals)
+    func saveAnimals(animals: [AnimalEntity]) {
+        try? realm.write {
+            realm.add(animals, update: .modified)
         }
     }
     
-    func getAnimals() ->  [Animal] {
-        Array(realm.objects(Animal.self))
+    func getAnimals() ->  [AnimalEntity] {
+        Array(realm.objects(AnimalEntity.self))
     }
     
     func clearAnimals() {
         try? realm.write {
-            realm.delete(realm.objects(Animal.self))
+            realm.delete(realm.objects(AnimalEntity.self))
         }
     }
 }
-
-// TODO: test CURD?

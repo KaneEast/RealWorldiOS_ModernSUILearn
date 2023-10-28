@@ -13,7 +13,7 @@ class AnimalEntity: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var uuid: ObjectId
     @Persisted var id: Int?
     @Persisted var organizationId: String?
-    @Persisted var rawUrl: String
+    @Persisted var rawUrl: String?
     @Persisted var type: String
     @Persisted var species: String?
     @Persisted var age: Age
@@ -22,10 +22,10 @@ class AnimalEntity: Object, ObjectKeyIdentifiable {
     @Persisted var coat: Coat?
     @Persisted var name: String
     @Persisted var descriptionM: String?
-    @Persisted var rawPhotos: Data?
+    @Persisted var photoMedium: String?
+    @Persisted var photoLarge: String?
     @Persisted var ranking: Int? = 0
-    
-//    var breeds: Breed
+//    @Persisted var breeds: Breed
 //    var picture: URL? {
 //        photos.first?.medium ?? photos.first?.large
 //    }
@@ -47,8 +47,6 @@ class AnimalEntity: Object, ObjectKeyIdentifiable {
 //        get { URL(string: rawUrl) }
 //        set { rawUrl = newValue?.absoluteString ?? "" }
 //    }
-    
-    
 }
 
 //// MARK: - Identifiable

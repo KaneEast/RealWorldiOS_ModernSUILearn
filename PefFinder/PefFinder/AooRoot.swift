@@ -1,5 +1,5 @@
 //
-//  PefFinderApp.swift
+//  AooRoot.swift
 //  PefFinder
 //
 //  Created by Kanein on 2022/06/25.
@@ -9,7 +9,7 @@ import SwiftUI
 import PefFinderOnboarding
 
 @main
-struct PefFinderApp: App {
+struct AooRoot: App {
     @AppStorage(AppUserDefaultsKeys.onboarding)
     var shouldPresentOnboarding = true
     var onboardingModels: [OnboardingModel] {
@@ -27,9 +27,9 @@ struct PefFinderApp: App {
                 image: .dogBoneStand
             ),
             OnboardingModel(
-                title: "Nearby",
+                title: "Animals",
                 description:
-                    "Find pets to adopt from nearby your place...",
+                    "Find pets to adopt for you...",
                 image: .chameleon
             )
         ]

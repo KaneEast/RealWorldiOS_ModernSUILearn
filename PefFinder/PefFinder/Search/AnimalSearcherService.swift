@@ -11,26 +11,21 @@ struct AnimalSearcherService {
 
 // MARK: - AnimalSearcher
 extension AnimalSearcherService: AnimalSearcher {
-  func searchAnimal(
-    by text: String,
-    age: AnimalSearchAge,
-    type: AnimalSearchType
-  ) async -> [Animal] {
-    // 3
-    let requestData = AnimalsRequest.getAnimalsBy(
-      name: text,
-      age: age != .none ? age.rawValue : nil,
-      type: type != .none ? type.rawValue : nil
-    )
-    // 4
-    do {
-      let animalsContainer: AnimalsContainer = try await requestManager
-        .perform(requestData)
-      return animalsContainer.animals
-    } catch {
-      // 5
-      print(error.localizedDescription)
-      return []
+    func searchAnimal(by text: String, age: AnimalSearchAge, type: AnimalSearchType) async -> [AnimalEntity] {
+        let requestData = AnimalsRequest.getAnimalsBy(
+            name: text,
+            age: age != .none ? age.rawValue : nil,
+            type: type != .none ? type.rawValue : nil
+        )
+        
+        do {
+            let animalsContainer: AnimalsContainer = try await requestManager
+                .perform(requestData)
+            return convertAnimalInfoToAnimalEntity(animalsContainer.animals)
+        } catch {
+            // TODO: k throw error
+            print(error.localizedDescription)
+            return []
+        }
     }
-  }
 }

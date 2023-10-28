@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AnimalHeaderView: View {
-    let animal: Animal
+    let animal: AnimalEntity
     
     @Binding var zoomed: Bool
     @Binding var favorited: Bool
@@ -17,12 +17,12 @@ struct AnimalHeaderView: View {
     var body: some View {
         if zoomed {
             LazyVStack {
-                AnimalImage(animalPicture: animal.picture, zoomed: $zoomed, geometry: geometry)
+                AnimalImage(animalPicture: URL(string: animal.photoMedium ?? ""), zoomed: $zoomed, geometry: geometry)
                 HeaderTitle(animal: animal, zoomed: $zoomed, geometry: geometry)
             }
         } else {
             HStack {
-                AnimalImage(animalPicture: animal.picture, zoomed: $zoomed, geometry: geometry)
+                AnimalImage(animalPicture: URL(string: animal.photoMedium ?? ""), zoomed: $zoomed, geometry: geometry)
                 HeaderTitle(animal: animal, zoomed: $zoomed, geometry: geometry)
                 Image(systemName: favorited ? "heart.fill" : "heart")
                     .font(.system(size: 50))
@@ -87,9 +87,9 @@ struct HeaderTitle: View {
     let animalName: String?
     let animalType: String?
     
-    let animal: Animal
+    let animal: AnimalEntity
     
-    init(animal: Animal, zoomed: Binding<Bool>, geometry: GeometryProxy) {
+    init(animal: AnimalEntity, zoomed: Binding<Bool>, geometry: GeometryProxy) {
         self.animal = animal
         self.animalType = animal.type
         self.animalName = animal.name

@@ -17,7 +17,7 @@ struct FetchAnimalsService {
 
 // MARK: - AnimalFetcher
 extension FetchAnimalsService: AnimalsFetcher {
-    func fetchAnimals(page: Int) async -> [Animal] {
+    func fetchAnimals(page: Int) async -> [AnimalInfo] {
         let requestData = AnimalsRequest.getAnimalsWith(page: page)
         do {
             let animalsContainer: AnimalsContainer = try await requestManager.perform(requestData)

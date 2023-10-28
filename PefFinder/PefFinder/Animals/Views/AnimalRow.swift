@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AnimalRow: View {
-    let animal: Animal
+    let animal: AnimalEntity
     
     var animalName: String
     var animalDescription: String
@@ -16,7 +16,7 @@ struct AnimalRow: View {
         "\(animal.type)"
     }
     
-    init(animal: Animal) {
+    init(animal: AnimalEntity) {
         self.animal = animal
         animalName = animal.name
         animalDescription = animal.descriptionM ?? ""
@@ -30,19 +30,11 @@ struct AnimalRow: View {
                 Text(animalName)
                     .multilineTextAlignment(.center)
                     .font(Font.custom("sheep_sans", size: 18, relativeTo: .title3))
-                Text(animalBreedAndType)
-                    .font(Font.custom("sheep_sans", size: 15, relativeTo: .callout))
-                
-                Text(animal.descriptionM ?? "")
-                    .lineLimit(2)
-                    .font(.footnote)
-                
+                Text(animalBreedAndType).font(Font.custom("sheep_sans", size: 15, relativeTo: .callout))
+                Text(animal.descriptionM ?? "").lineLimit(2).font(.footnote)
                 HStack {
-                    Text(animal.age.rawValue)
-                        .modifier(AnimalAttributesCard(color: animal.age.color))
-                    
-                    Text(animal.gender.rawValue)
-                        .modifier(AnimalAttributesCard(color: .pink))
+                    Text(animal.age.rawValue).modifier(AnimalAttributesCard(color: animal.age.color))
+                    Text(animal.gender.rawValue).modifier(AnimalAttributesCard(color: .pink))
                 }
                 
             }
@@ -51,30 +43,28 @@ struct AnimalRow: View {
     }
     
     var image: some View {
-        // TODO: Image Cache
-        AsyncImage(url: animal.picture) { image in
+        // TODO: k Image Cache
+        AsyncImage(url: URL(string: animal.photoMedium ?? "")) { image in
             image.resizable().accessibilityLabel("Image of Pet")
         } placeholder: {
             Image("rw-logo").resizable().accessibilityLabel("Placeholder Logo")
-                .overlay {
-                    if animal.picture != nil {
-                        ProgressView()
-                            .accessibilityLabel("Image loading indicator")
-                            .accessibilityHidden(true)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .background(.gray.opacity(0.4))
-                    }
+            .overlay {
+                if URL(string: animal.photoMedium ?? "") != nil {
+                    ProgressView()
+                    .accessibilityLabel("Image loading indicator")
+                    .accessibilityHidden(true)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.gray.opacity(0.4))
                 }
-        }.aspectRatio(contentMode: .fit).frame(width: 112, height: 112).cornerRadius(8)
+            }
+        }
+        .aspectRatio(contentMode: .fit).frame(width: 112, height: 112).cornerRadius(8)
     }
 }
 
-struct AnimalRow_Previews: PreviewProvider {
-    static var previews: some View {
-        //        if let animal = CoreDataHelper.getTestAnimalEntity() {
-        //            AnimalRow(animal: Animal())
-        //        }
-        AnimalRow(animal: Animal())
-    }
-}
+// TODO: k
+//#Preview {
+//    AnimalRow(animal: AnimalInfo())
+//}
+
 

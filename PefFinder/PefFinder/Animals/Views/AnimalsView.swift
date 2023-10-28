@@ -1,5 +1,5 @@
 //
-//  AnimalsNearYouView.swift
+//  AnimalsView.swift
 //  PefFinder
 //
 //  Created by Kanein on 2022/06/26.
@@ -22,23 +22,21 @@ struct AnimalsView: View {
                 }
             }
             .task { await viewModel.fetchAnimals() }
-            .navigationTitle("Animals near you")
+            .navigationTitle("Animals")
             .overlay {
                 if viewModel.isLoading && viewModel.animals.isEmpty {
-                    ProgressView("Finding Animals near you...")
+                    ProgressView("Finding Animals...")
                 }
             }
         }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
-struct AnimalsNearYouView_Previews: PreviewProvider {
-    static var previews: some View {
-        AnimalsView(
-            viewModel: AnimalsViewModel(
-                animalFetcher: AnimalsFetcherMock(),
-                animalStore: PefStore.shared
-            )
+#Preview {
+    AnimalsView(
+        viewModel: AnimalsViewModel(
+            animalFetcher: AnimalsFetcherMock(),
+            animalStore: PefStore.shared
         )
-    }
+    )
 }

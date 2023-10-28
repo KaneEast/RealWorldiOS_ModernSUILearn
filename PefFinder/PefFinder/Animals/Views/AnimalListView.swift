@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AnimalListView<Content, Data>: View
-    where Content: View, Data: RandomAccessCollection, Data.Element: Animal {
+where Content: View, Data: RandomAccessCollection, Data.Element: AnimalEntity {
     let animals: Data
     let footer: Content
     
@@ -36,10 +36,10 @@ struct AnimalListView<Content, Data>: View
     }
 }
 
-struct AnimalListView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    Group {
         NavigationView {
-            AnimalListView(animals: Animal.mock)
+            AnimalListView(animals: AnimalEntity.mock)
         }
         NavigationView {
             AnimalListView(animals: []) {

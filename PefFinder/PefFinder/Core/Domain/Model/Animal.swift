@@ -8,75 +8,24 @@
 import SwiftUI
 import RealmSwift
 
-class Animal: Object, ObjectKeyIdentifiable, Codable {
-    @Persisted(primaryKey: true) var uuid: ObjectId
-    
-    @Persisted var id: Int?
-    @Persisted var organizationId: String?
-    
-    var url: URL? {
-        get { URL(string: rawUrl) }
-        set { rawUrl = newValue?.absoluteString ?? "" }
-    }
-    
-    @Persisted var rawUrl: String
-    
-    @Persisted var type: String
-    @Persisted var species: String?
-    @Persisted var age: Age
-    @Persisted var gender: Gender
-    @Persisted var size: Size
-    @Persisted var coat: Coat?
-    @Persisted var name: String
-    @Persisted var descriptionM: String?
-    
-    var photos: [PhotoSizes] {
-        get {
-            guard let rawPhotos = rawPhotos,
-                  let pts = try? JSONDecoder().decode([PhotoSizes].self, from: rawPhotos)
-            else {
-                return []
-            }
-            
-            return pts
-        }
-        set {
-            rawPhotos = try? JSONEncoder().encode(newValue)
-        }
-    }
-    @Persisted var rawPhotos: Data?
-    
+class AnimalInfo: Codable {
+    var id: Int?
+    var organizationId: String?
+    var url: URL?
+    var type: String
+    var species: String?
+    var age: Age
+    var gender: Gender
+    var size: Size
+    var coat: Coat?
+    var name: String
+    var descriptionM: String?
+    var photos: [PhotoSizes]
     var breeds: Breed
-    //    var colors: APIColors
-    //    let videos: [VideoLink]
-    //    let status: AdoptionStatus
-    //    var attributes: AnimalAttributes
-    //    var environment: AnimalEnvironment?
-    //    let tags: [String]
-    //    var contact: Contact
-    //    let publishedAt: String?
-    //    let distance: Double?
-    @Persisted var ranking: Int? = 0
+    var ranking: Int? = 0
     
     var picture: URL? {
         photos.first?.medium ?? photos.first?.large
-    }
-    
-    // Todo: this code is for just now
-    override init() {
-        self.id = 1
-        self.organizationId = "1"
-        self.rawUrl = ""
-        self.type = "nil"
-        self.species = "nil"
-        self.name = "1"
-        self.descriptionM = "description"
-        self.rawPhotos = nil
-        self.age = .baby
-        self.gender = .male
-        self.size = .small
-        self.coat = .curly
-        self.breeds = Breed()
     }
     
     enum CodingKeys: String, CodingKey {
@@ -99,7 +48,7 @@ class Animal: Object, ObjectKeyIdentifiable, Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(Int?.self, forKey: .id)
         self.organizationId = try container.decode(String?.self, forKey: .organizationId)
-        let url = try container.decode(URL.self, forKey: .url)
+        self.url = try container.decode(URL.self, forKey: .url)
         self.type = try container.decode(String.self, forKey: .type)
         self.species = try container.decode(String?.self, forKey: .species)
         self.name = try container.decode(String.self, forKey: .name)
@@ -109,10 +58,7 @@ class Animal: Object, ObjectKeyIdentifiable, Codable {
         self.size = try container.decode(Size.self, forKey: .size)
         self.coat = try container.decode(Coat?.self, forKey: .coat)
         self.breeds = try container.decode(Breed.self, forKey: .breeds)
-        let photos = try container.decode([PhotoSizes].self, forKey: .photos)
-        
-        self.rawUrl = url.absoluteString
-        self.rawPhotos = try? JSONEncoder().encode(photos)
+        self.photos = try container.decode([PhotoSizes].self, forKey: .photos)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -134,7 +80,7 @@ class Animal: Object, ObjectKeyIdentifiable, Codable {
 }
 
 // MARK: - Identifiable
-extension Animal: Identifiable {
+extension AnimalInfo: Identifiable {
 }
 
 struct VideoLink: Codable {
@@ -231,16 +177,11 @@ enum Age: String, Codable, CaseIterable, PersistableEnum {
 extension Age {
     var color: Color {
         switch self {
-        case .baby:
-            return .cyan
-        case .young:
-            return .orange
-        case .adult:
-            return .green
-        case .senior:
-            return .blue
-        case .unknown:
-            return .clear
+        case .baby: return .cyan
+        case .young: return .orange
+        case .adult: return .green
+        case .senior: return .blue
+        case .unknown: return .clear
         }
     }
 }

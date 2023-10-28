@@ -12,7 +12,7 @@ protocol AnimalSearcher {
         by text: String,
         age: AnimalSearchAge,
         type: AnimalSearchType
-    ) async -> [Animal]
+    ) async -> [AnimalEntity]
 }
 
 //@MainActor
@@ -20,8 +20,7 @@ final class SearchViewModel: ObservableObject {
     @Published var searchText = ""
     @Published var ageSelection = AnimalSearchAge.none
     @Published var typeSelection = AnimalSearchType.none
-    
-    @Published var animals: [Animal] = []
+    @Published var animals: [AnimalEntity] = []
     
     var shouldFilter: Bool {
         !searchText.isEmpty ||
