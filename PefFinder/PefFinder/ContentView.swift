@@ -17,6 +17,9 @@ struct ContentView: View {
             )
             .tabItem { Label("Animals", systemImage: "cat") }
             
+            BookedAnimalsView(viewModel: BookedAnimalsViewModel())
+            .tabItem{ Label("Booked", systemImage: "bookmark") }
+            
             SearchView()
             .tabItem { Label("Search", systemImage: "magnifyingglass") }
         }

@@ -13,17 +13,17 @@ struct BookedAnimalsView: View {
     
     var body: some View {
         NavigationView {
-//            AnimalListView(animals: viewModel.animalsInDatabase) {
-//                if !viewModel.animals.isEmpty && viewModel.hasMoreAnimals {
+            AnimalListView(animals: viewModel.animalsInDatabase) {
+//                if !viewModel.animalsInDatabase.isEmpty && viewModel.hasMoreAnimals {
 //                    HStack(alignment: .center) {
 //                        LoadingAnimation().frame(maxWidth: 125, minHeight: 125)
 //                        Text("Loading more animals...")
 //                    }
 //                    .task { await viewModel.fetchMoreAnimals() }
 //                }
-//            }
+            }
 //            .task { await viewModel.fetchAnimals() }
-//            .navigationTitle("Animals")
+            .navigationTitle("Booked Animals")
 //            .overlay {
 //                if viewModel.isLoading && viewModel.animals.isEmpty {
 //                    ProgressView("Finding Animals...")
