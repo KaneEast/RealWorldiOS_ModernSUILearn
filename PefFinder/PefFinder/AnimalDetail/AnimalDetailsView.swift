@@ -11,38 +11,31 @@ struct AnimalDetailsView: View {
     @State var zoomed = false
     @State var favorited = false
     
-    let animal: AnimalEntity
-    
-    var animalDescription: String? {
-        animal.descriptionM
-    }
-    
-    var animalName: String? {
-        animal.name
-    }
+//    let animal: AnimalEntity
+    @ObservedObject var vm: AnimalDetailsViewModel
     
     var body: some View {
+        
         GeometryReader { geometry in
             ScrollView {
                 ZStack(alignment: .leading) {
                     LazyVStack(alignment: .leading) {
                         AnimalHeaderView(
-                            animal: animal,
+                            vm: vm,
                             zoomed: $zoomed,
-                            favorited: $favorited,
                             geometry: geometry)
                         .onTapGesture { zoomed.toggle() }
                         Divider()
                             .blur(radius: zoomed ? 20 : 0)
-                        PetRankingView(animal: animal)
+                        PetRankingView(animal: vm.animal)
                             .padding()
                             .blur(radius: zoomed ? 20 : 0)
-                        AnimalDetailRow(animal: animal)
+                        AnimalDetailRow(animal: vm.animal)
                             .blur(radius: zoomed ? 20 : 0)
                         Divider()
                             .blur(radius: zoomed ? 20 : 0)
                         VStack(alignment: .leading, spacing: 24) {
-                            if let description = animalDescription {
+                            if let description = vm.animalDescription {
                                 VStack(alignment: .leading) {
                                     Text("Details")
                                         .font(.headline)
@@ -59,7 +52,7 @@ struct AnimalDetailsView: View {
                 }
             }
         }
-        .navigationTitle(animalName ?? "")
+        .navigationTitle(vm.animalName ?? "")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -68,14 +61,13 @@ struct AnimalDetailView_Previews: PreviewProvider {
     static var previews: some View {
         
         NavigationView {
-            AnimalDetailsView(animal: AnimalEntity.mock.first!)
-                .previewLayout(.sizeThatFits)
+            AnimalDetailsView(vm: AnimalDetailsViewModel(animal: AnimalEntity.mock.first!))
         }
         .previewLayout(.sizeThatFits)
         .previewDisplayName("iPhone SE (2nd generation)")
         
         NavigationView {
-            AnimalDetailsView(animal: AnimalEntity.mock.first!)
+            AnimalDetailsView(vm: AnimalDetailsViewModel(animal: AnimalEntity.mock.first!))
         }
         .previewDevice("iPhone 12 Pro")
         .previewDisplayName("iPhone 12 Pro")

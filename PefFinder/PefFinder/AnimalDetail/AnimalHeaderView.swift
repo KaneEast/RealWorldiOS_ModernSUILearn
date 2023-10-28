@@ -6,36 +6,55 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct AnimalHeaderView: View {
-    let animal: AnimalEntity
     
+//    @Binding var animal: AnimalEntity
+    @ObservedObject var vm: AnimalDetailsViewModel
     @Binding var zoomed: Bool
-    @Binding var favorited: Bool
+//    @Binding var favorited: Bool
     let geometry: GeometryProxy
+    
     
     var body: some View {
         if zoomed {
             LazyVStack {
-                AnimalImage(animalPicture: URL(string: animal.photoMedium ?? ""), zoomed: $zoomed, geometry: geometry)
-                HeaderTitle(animal: animal, zoomed: $zoomed, geometry: geometry)
+                AnimalImage(
+                    animalPicture: URL(string: vm.animal.photoMedium ?? ""),
+                    zoomed: $zoomed,
+                    geometry: geometry)
+                HeaderTitle(
+                    animal: vm.animal,
+                    zoomed: $zoomed,
+                    geometry: geometry)
             }
         } else {
             HStack {
-                AnimalImage(animalPicture: URL(string: animal.photoMedium ?? ""), zoomed: $zoomed, geometry: geometry)
-                HeaderTitle(animal: animal, zoomed: $zoomed, geometry: geometry)
-                Image(systemName: favorited ? "heart.fill" : "heart")
+                AnimalImage(
+                    animalPicture: URL(string: vm.animal.photoMedium ?? ""),
+                    zoomed: $zoomed,
+                    geometry: geometry)
+                
+                HeaderTitle(animal: vm.animal,
+                            zoomed: $zoomed,
+                            geometry: geometry)
+                
+                Image(systemName: vm.isBooked ? "heart.fill" : "heart")
                     .font(.system(size: 50))
-                    .foregroundColor( favorited ? Color(.systemRed) : Color(.black))
+                    .foregroundColor( vm.isBooked ? Color(.systemRed) : Color(.black))
                     .frame(minWidth: 50, maxWidth: 50, minHeight: 50, maxHeight: 50)
-                    .animation(favorited ? .interpolatingSpring(
+                    .animation(vm.isBooked ? .interpolatingSpring(
                         mass: 5,
                         stiffness: 3.0,
                         damping: 1.0,
-                        initialVelocity: 1) : .default, value: $favorited.wrappedValue)
+                        initialVelocity: 1) : .default, value: vm.isBooked)
                     .onTapGesture {
-                        $favorited.wrappedValue.toggle()
+//                        vm.isBooked.toggle()
+//                        animal.isBooked = favorited
+                        vm.favoriteToggleAnimal()
                     }
+                
                 Spacer(minLength: 25)
             }
         }
@@ -50,19 +69,19 @@ struct AnimalImage: View {
     var body: some View {
         AsyncImage(url: animalPicture) { image in
             image
-                .resizable()
-                .aspectRatio(zoomed ? nil : 1, contentMode: zoomed ? .fit : .fill)
+            .resizable()
+            .aspectRatio(zoomed ? nil : 1, contentMode: zoomed ? .fit : .fill)
         } placeholder: {
             Image("rw-logo")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .overlay {
-                    if animalPicture != nil {
-                        ProgressView()
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .background(.gray.opacity(0.4))
-                    }
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .overlay {
+                if animalPicture != nil {
+                    ProgressView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(.gray.opacity(0.4))
                 }
+            }
         }
         .clipShape(
             RoundedRectangle(cornerRadius: zoomed ? 0 : 300)

@@ -68,6 +68,8 @@
 		3CBD2CD92AECE59D00D78EAC /* BookedAnimalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD2CD82AECE59D00D78EAC /* BookedAnimalsViewModel.swift */; };
 		3CBD2CDB2AECE6AF00D78EAC /* BookedAnimalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD2CDA2AECE6AF00D78EAC /* BookedAnimalsView.swift */; };
 		3CBD2CDD2AECF37500D78EAC /* AnimalEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD2CDC2AECF37500D78EAC /* AnimalEntity.swift */; };
+		3CBD2CE12AED319C00D78EAC /* AnimalsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD2CE02AED319C00D78EAC /* AnimalsDetailsViewModel.swift */; };
+		3CBD2CE22AED31A400D78EAC /* AnimalsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD2CE02AED319C00D78EAC /* AnimalsDetailsViewModel.swift */; };
 		3CC16DD12877251F00D9B98A /* PefFinderOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 3CC16DD02877251F00D9B98A /* PefFinderOnboarding */; };
 /* End PBXBuildFile section */
 
@@ -165,6 +167,7 @@
 		3CBD2CD82AECE59D00D78EAC /* BookedAnimalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedAnimalsViewModel.swift; sourceTree = "<group>"; };
 		3CBD2CDA2AECE6AF00D78EAC /* BookedAnimalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedAnimalsView.swift; sourceTree = "<group>"; };
 		3CBD2CDC2AECF37500D78EAC /* AnimalEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalEntity.swift; sourceTree = "<group>"; };
+		3CBD2CE02AED319C00D78EAC /* AnimalsDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,8 +222,7 @@
 		3C6961A728674E750089BE5C /* PefFinder */ = {
 			isa = PBXGroup;
 			children = (
-				3CA1385E28682B9700C59ADA /* Organization.swift */,
-				3CA6467E2883C8E000EBBF63 /* String+Localization.swift */,
+				3CBD2CDF2AED0EFD00D78EAC /* Garbage */,
 				3CA138432868191200C59ADA /* Core */,
 				3CA012A32870270200148376 /* Components */,
 				3CA012A9287027BD00148376 /* AnimalDetail */,
@@ -353,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				3CA012A72870277400148376 /* AnimalDetailsView.swift */,
+				3CBD2CE02AED319C00D78EAC /* AnimalsDetailsViewModel.swift */,
 				3CA012AA287027F500148376 /* AnimalHeaderView.swift */,
 				3CA012AC287028A200148376 /* AnimalDetailRow.swift */,
 				3CA012AE287028E900148376 /* AnimalDetailCard.swift */,
@@ -477,6 +480,15 @@
 				3CBD2CDC2AECF37500D78EAC /* AnimalEntity.swift */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		3CBD2CDF2AED0EFD00D78EAC /* Garbage */ = {
+			isa = PBXGroup;
+			children = (
+				3CA1385E28682B9700C59ADA /* Organization.swift */,
+				3CA6467E2883C8E000EBBF63 /* String+Localization.swift */,
+			);
+			path = Garbage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -624,6 +636,7 @@
 			files = (
 				3C6961AB28674E750089BE5C /* ContentView.swift in Sources */,
 				3C6961A928674E750089BE5C /* AooRoot.swift in Sources */,
+				3CBD2CE12AED319C00D78EAC /* AnimalsDetailsViewModel.swift in Sources */,
 				3CBD2CDD2AECF37500D78EAC /* AnimalEntity.swift in Sources */,
 				3CA01295286C349A00148376 /* AnimalsFetcherMock.swift in Sources */,
 				3C6961D328674E990089BE5C /* APIConstants.swift in Sources */,
@@ -678,6 +691,7 @@
 				3CA012C228717B4D00148376 /* SearchViewModelTestCase.swift in Sources */,
 				3CA0127D28696CD600148376 /* AccessTokenTestHelper.swift in Sources */,
 				3CA0128128696DF800148376 /* RequestManagerTests.swift in Sources */,
+				3CBD2CE22AED31A400D78EAC /* AnimalsDetailsViewModel.swift in Sources */,
 				3CA0127A28696C9700148376 /* APIManagerMock.swift in Sources */,
 				3C6961BA28674E770089BE5C /* PefFinderTests.swift in Sources */,
 				3CA0129B286FFFEF00148376 /* AnimalsNearYouViewModelTestCase.swift in Sources */,

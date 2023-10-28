@@ -10,16 +10,9 @@ import RealmSwift
 
 @MainActor class BookedAnimalsViewModel: ObservableObject {
     
-//    var animalStore: AnimalStore
+    @Published var bookedAnimals: [AnimalEntity] = []
     
-    // animalsInDatabase observe
-    @ObservedResults(AnimalEntity.self, where: { $0.id != nil }) var animalsInDatabase
-    
-//    init(animalStore: AnimalStore) {
-//        self.animalStore = animalStore
-//    }
-//    
-//    func fetchAnimals() {
-//        
-//    }
+    func fetch() {
+        self.bookedAnimals = PefStore.shared.getAnimals().filter { $0.isBooked }
+    }
 }

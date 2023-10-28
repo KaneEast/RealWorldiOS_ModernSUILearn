@@ -10,8 +10,8 @@ import SwiftUI
 import RealmSwift
 
 class AnimalEntity: Object, ObjectKeyIdentifiable {
-    @Persisted(primaryKey: true) var uuid: ObjectId
-    @Persisted var id: Int?
+//    @Persisted(primaryKey: true) var uuid: ObjectId
+    @Persisted(primaryKey: true) var id: Int?
     @Persisted var organizationId: String?
     @Persisted var rawUrl: String?
     @Persisted var type: String
@@ -25,6 +25,7 @@ class AnimalEntity: Object, ObjectKeyIdentifiable {
     @Persisted var photoMedium: String?
     @Persisted var photoLarge: String?
     @Persisted var ranking: Int? = 0
+    @Persisted var isBooked: Bool = false
 //    @Persisted var breeds: Breed
 //    var picture: URL? {
 //        photos.first?.medium ?? photos.first?.large

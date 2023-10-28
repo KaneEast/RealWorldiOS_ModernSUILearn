@@ -26,7 +26,7 @@ where Content: View, Data: RandomAccessCollection, Data.Element: AnimalEntity {
     var body: some View {
         List {
             ForEach(animals) { animal in
-                NavigationLink(destination: AnimalDetailsView(animal: animal)) {
+                NavigationLink(destination: AnimalDetailsView(vm: AnimalDetailsViewModel(animal: animal))) {
                     AnimalRow(animal: animal)
                 }
             }

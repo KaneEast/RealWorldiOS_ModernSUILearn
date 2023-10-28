@@ -34,14 +34,13 @@ protocol AnimalsFetcher {
         isLoading = true
         let animals = await animalFetcher.fetchAnimals(page: page)
         let animalEntityArray = convertAnimalInfoToAnimalEntity(animals)
-        animalStore.saveAnimals(animals: animalEntityArray)
         
         self.isLoading = false
         
         // save first page
         if self.animals.isEmpty {
-//            self.animals = animals
             self.animals = animalEntityArray
+            animalStore.saveAnimals(animals: animalEntityArray)
         } else {
             self.animals += animalEntityArray
         }

@@ -33,4 +33,12 @@ class PefStore: AnimalStore {
             realm.delete(realm.objects(AnimalEntity.self))
         }
     }
+    
+    func favoriteToggleAnimal(_ animal: AnimalEntity) {
+        try? realm.write {
+            animal.thaw()?.isBooked.toggle()
+            realm.add(animal, update: .modified)
+//            realm.create(animal, update: .modified)
+        }
+    }
 }
