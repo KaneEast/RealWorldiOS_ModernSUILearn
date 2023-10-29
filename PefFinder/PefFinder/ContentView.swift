@@ -23,6 +23,12 @@ struct ContentView: View {
             SearchView()
             .tabItem { Label("Search", systemImage: "magnifyingglass") }
         }
+        .onAppear {
+//            let appearance = UINavigationBarAppearance()
+//            appearance.backgroundColor = UIColor(Color.blue.opacity(0.25))
+//            UINavigationBar.appearance().standardAppearance = appearance
+//            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
     }
 }
 

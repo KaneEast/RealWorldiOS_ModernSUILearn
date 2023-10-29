@@ -37,7 +37,8 @@ final class SearchViewModel: ObservableObject {
             )
             
             DispatchQueue.main.async {
-                self.animals = animals
+                self.animals += animals
+//                PefStore.shared.saveAnimals(animals: animals)
             }
         }
     }

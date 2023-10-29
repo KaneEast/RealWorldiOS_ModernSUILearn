@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct SearchView: View {
-    @StateObject var viewModel = SearchViewModel(
+//    @StateObject var viewModel = SearchViewModel(
+//        animalSearcher: AnimalSearcherService(requestManager: RequestManager()))
+    @ObservedObject var viewModel = SearchViewModel(
         animalSearcher: AnimalSearcherService(requestManager: RequestManager()))
     @State var filterPickerIsPresented = false
     
