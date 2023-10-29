@@ -44,8 +44,8 @@ struct PetRankImage: View {
                 tapped.toggle()
                 recentIndex = index
             }
-            .onChange(of: recentIndex) { value in
-                checkOpacity(value: value)
+            .onChange(of: recentIndex) {// value in
+                checkOpacity(value: recentIndex)
             }
             .onAppear {
                 checkOpacity(value: recentIndex)

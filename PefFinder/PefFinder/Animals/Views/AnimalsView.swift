@@ -11,14 +11,17 @@ struct AnimalsView: View {
     @ObservedObject var viewModel: AnimalsViewModel = AnimalsViewModel()
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             AnimalListView(animals: viewModel.animals) {
                 if !viewModel.animals.isEmpty && viewModel.hasMoreAnimals {
                     HStack(alignment: .center) {
                         LoadingAnimation().frame(maxWidth: 125, minHeight: 125)
                         Text("Loading more animals...")
                     }
-                    .task { await viewModel.fetchMoreAnimals() }
+                    .task {
+                        // When HStack Footer Appears, Fetch More Animals
+                        await viewModel.fetchMoreAnimals()
+                    }
                 }
             }
             .task { await viewModel.fetchAnimals() }

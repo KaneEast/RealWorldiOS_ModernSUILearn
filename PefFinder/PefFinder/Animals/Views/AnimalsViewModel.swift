@@ -12,13 +12,11 @@ protocol AnimalsFetcher {
     func fetchAnimals(page: Int) async -> [AnimalInfo]
 }
 
-// @MainActorアノテーションは、このクラスで実行されるすべてのコードがメインスレッド内にあることを確認します。
-// FetchAnimalsServiceから結果を受け取ると、実行がメインスレッドに戻るため、
-// メインスレッドの外部でUIを更新することを恐れずに、公開プロパティを更新できます。
 @MainActor class AnimalsViewModel: ObservableObject {
     @Published var animals: [AnimalEntity] = []
     @Published var isLoading: Bool = false
     @Published var hasMoreAnimals = true
+    
     private(set) var page = 1
     private let animalFetcher: AnimalsFetcher
     var animalStore: AnimalStore
