@@ -10,25 +10,20 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            AnimalsView(
-                viewModel: AnimalsViewModel(
-                    animalFetcher: FetchAnimalsService(requestManager: RequestManager()),
-                    animalStore: PefStore.shared)
-            )
-            .tabItem { Label("Animals", systemImage: "cat") }
-            
-            BookedAnimalsView(viewModel: BookedAnimalsViewModel())
-            .tabItem{ Label("Booked", systemImage: "bookmark") }
-            
-            SearchView()
-            .tabItem { Label("Search", systemImage: "magnifyingglass") }
+            AnimalsView().tabItem { Label("Animals", systemImage: "cat") }
+            BookedAnimalsView().tabItem{ Label("Booked", systemImage: "bookmark") }
+            SearchView().tabItem { Label("Search", systemImage: "magnifyingglass") }
         }
         .onAppear {
-//            let appearance = UINavigationBarAppearance()
-//            appearance.backgroundColor = UIColor(Color.blue.opacity(0.25))
-//            UINavigationBar.appearance().standardAppearance = appearance
-//            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+            //applyNavigationBarAppearance()
         }
+    }
+    
+    func applyNavigationBarAppearance() {
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor(Color.blue.opacity(0.25))
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
 }
 

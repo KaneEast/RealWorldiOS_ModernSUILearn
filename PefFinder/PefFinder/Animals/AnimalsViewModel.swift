@@ -16,15 +16,16 @@ protocol AnimalsFetcher {
 // FetchAnimalsServiceから結果を受け取ると、実行がメインスレッドに戻るため、
 // メインスレッドの外部でUIを更新することを恐れずに、公開プロパティを更新できます。
 @MainActor class AnimalsViewModel: ObservableObject {
-    private let animalFetcher: AnimalsFetcher
-    
     @Published var animals: [AnimalEntity] = []
     @Published var isLoading: Bool = false
     @Published var hasMoreAnimals = true
     private(set) var page = 1
+    private let animalFetcher: AnimalsFetcher
     var animalStore: AnimalStore
     
-    init(isLoading: Bool = true, animalFetcher: AnimalsFetcher, animalStore: AnimalStore) {
+    init(isLoading: Bool = true,
+         animalFetcher: AnimalsFetcher = FetchAnimalsService(requestManager: RequestManager()),
+         animalStore: AnimalStore = PefStore.shared) {
         self.isLoading = isLoading
         self.animalFetcher = animalFetcher
         self.animalStore = animalStore

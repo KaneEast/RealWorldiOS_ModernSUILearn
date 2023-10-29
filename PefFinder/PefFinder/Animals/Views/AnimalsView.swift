@@ -8,26 +8,26 @@
 import SwiftUI
 
 struct AnimalsView: View {
-    @ObservedObject var viewModel: AnimalsViewModel
+    @ObservedObject var viewModel: AnimalsViewModel = AnimalsViewModel()
     
     var body: some View {
         NavigationStack {
-                AnimalListView(animals: viewModel.animals) {
-                    if !viewModel.animals.isEmpty && viewModel.hasMoreAnimals {
-                        HStack(alignment: .center) {
-                            LoadingAnimation().frame(maxWidth: 125, minHeight: 125)
-                            Text("Loading more animals...")
-                        }
-                        .task { await viewModel.fetchMoreAnimals() }
+            AnimalListView(animals: viewModel.animals) {
+                if !viewModel.animals.isEmpty && viewModel.hasMoreAnimals {
+                    HStack(alignment: .center) {
+                        LoadingAnimation().frame(maxWidth: 125, minHeight: 125)
+                        Text("Loading more animals...")
                     }
+                    .task { await viewModel.fetchMoreAnimals() }
                 }
-                .task { await viewModel.fetchAnimals() }
-                .navigationTitle("Animals")
-                .overlay {
-                    if viewModel.isLoading && viewModel.animals.isEmpty {
-                        ProgressView("Finding Animals...")
-                    }
+            }
+            .task { await viewModel.fetchAnimals() }
+            .navigationTitle("Animals")
+            .overlay {
+                if viewModel.isLoading && viewModel.animals.isEmpty {
+                    ProgressView("Finding Animals...")
                 }
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

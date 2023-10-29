@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct BookedAnimalsView: View {
-    @StateObject var viewModel = BookedAnimalsViewModel()
+    @ObservedObject var viewModel = BookedAnimalsViewModel()
     
     var body: some View {
         NavigationView {

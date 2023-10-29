@@ -29,16 +29,18 @@ enum Tab: Int, Identifiable, Hashable {
 
   @ViewBuilder
   func makeContentView(popToRootTab: Binding<Tab>) -> some View {
-    switch self {
-    case .Animals:
-      TimelineTab(popToRootTab: popToRootTab)
-    case .Booked:
-      TimelineTab(popToRootTab: popToRootTab, timeline: .trending)
-    case .Search:
-      TimelineTab(popToRootTab: popToRootTab, timeline: .local)
-    case .other:
       EmptyView()
-    }
+      
+//    switch self {
+//    case .Animals:
+//      TimelineTab(popToRootTab: popToRootTab)
+//    case .Booked:
+//      TimelineTab(popToRootTab: popToRootTab, timeline: .trending)
+//    case .Search:
+//      TimelineTab(popToRootTab: popToRootTab, timeline: .local)
+//    case .other:
+//      EmptyView()
+//    }
   }
 
   @ViewBuilder
