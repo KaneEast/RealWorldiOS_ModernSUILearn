@@ -11,7 +11,7 @@ struct AnimalsView: View {
     @ObservedObject var viewModel: AnimalsViewModel
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             AnimalListView(animals: viewModel.animals) {
                 if !viewModel.animals.isEmpty && viewModel.hasMoreAnimals {
                     HStack(alignment: .center) {

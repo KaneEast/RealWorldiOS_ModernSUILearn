@@ -8,11 +8,7 @@
 import Foundation
 
 protocol AnimalSearcher {
-    func searchAnimal(
-        by text: String,
-        age: AnimalSearchAge,
-        type: AnimalSearchType
-    ) async -> [AnimalEntity]
+    func searchAnimal(by text: String, age: AnimalSearchAge, type: AnimalSearchType) async -> [AnimalEntity]
 }
 
 //@MainActor
@@ -23,9 +19,7 @@ final class SearchViewModel: ObservableObject {
     @Published var animals: [AnimalEntity] = []
     
     var shouldFilter: Bool {
-        !searchText.isEmpty ||
-        ageSelection != .none ||
-        typeSelection != .none
+        !searchText.isEmpty || ageSelection != .none || typeSelection != .none
     }
     
     private let animalSearcher: AnimalSearcher

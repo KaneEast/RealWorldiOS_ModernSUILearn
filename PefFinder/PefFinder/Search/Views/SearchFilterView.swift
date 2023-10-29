@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Observation
+import Combine
 
 struct SearchFilterView: View {
     @Environment(\.dismiss) private var dismiss
@@ -19,35 +21,22 @@ struct SearchFilterView: View {
                         Text(age.rawValue.capitalized)
                     }
                 }
-                .onChange(of: viewModel.ageSelection) { _ in
-                    viewModel.search()
-                }
-                
                 Picker("Type", selection: $viewModel.typeSelection) {
                     ForEach(AnimalSearchType.allCases, id: \.self) { type in
                         Text(type.rawValue.capitalized)
                     }
                 }
-                .onChange(of: viewModel.typeSelection) { _ in
-                    viewModel.search()
-                }
-            } footer: {
-                Text("You can mix both, age and type, to make a more accurate search.")
-            }
+                .onChange(of: viewModel.ageSelection) { viewModel.search() }
+                .onChange(of: viewModel.typeSelection) { viewModel.search() }
+            } footer: { Text("You can mix both, age and type, to make a more accurate search.") }
             
             Button("Clear", role: .destructive, action: viewModel.clearFilters)
-            Button("Done") {
-                dismiss()
-            }
+            Button("Done") { dismiss() }
         }
         .navigationBarTitle("Filters")
         .toolbar {
             ToolbarItem {
-                Button {
-                    dismiss()
-                } label: {
-                    Label("Close", systemImage: "xmark.circle.fill")
-                }
+                Button { dismiss() } label: { Label("Close", systemImage: "xmark.circle.fill") }
             }
         }
     }

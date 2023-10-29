@@ -4,12 +4,9 @@
 //
 //  Created by Kane on 2023/10/28.
 //
-
 import SwiftUI
 
 struct BookedAnimalsView: View {
-    
-//    @ObservedObject var viewModel: BookedAnimalsViewModel
     @StateObject var viewModel = BookedAnimalsViewModel()
     
     var body: some View {
@@ -29,7 +26,7 @@ struct BookedAnimalsView: View {
         }
     }
 }
-    
+
 #Preview {
     BookedAnimalsView()
 }

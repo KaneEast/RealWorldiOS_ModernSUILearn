@@ -46,7 +46,6 @@
 		3CA012B728709D4700148376 /* SearchFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012B628709D4700148376 /* SearchFilterView.swift */; };
 		3CA012B928709E3300148376 /* SuggestionsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012B828709E3300148376 /* SuggestionsGrid.swift */; };
 		3CA012BB28709E7E00148376 /* AnimalTypeSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012BA28709E7E00148376 /* AnimalTypeSuggestionView.swift */; };
-		3CA012BD28709EBA00148376 /* EmptyResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012BC28709EBA00148376 /* EmptyResultsView.swift */; };
 		3CA012C228717B4D00148376 /* SearchViewModelTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA012C128717B4D00148376 /* SearchViewModelTestCase.swift */; };
 		3CA138462868198600C59ADA /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA138452868198600C59ADA /* RequestProtocol.swift */; };
 		3CA1384A28681BDC00C59ADA /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA1384928681BDC00C59ADA /* NetworkError.swift */; };
@@ -144,7 +143,6 @@
 		3CA012B628709D4700148376 /* SearchFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterView.swift; sourceTree = "<group>"; };
 		3CA012B828709E3300148376 /* SuggestionsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsGrid.swift; sourceTree = "<group>"; };
 		3CA012BA28709E7E00148376 /* AnimalTypeSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalTypeSuggestionView.swift; sourceTree = "<group>"; };
-		3CA012BC28709EBA00148376 /* EmptyResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResultsView.swift; sourceTree = "<group>"; };
 		3CA012C128717B4D00148376 /* SearchViewModelTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTestCase.swift; sourceTree = "<group>"; };
 		3CA138452868198600C59ADA /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		3CA1384928681BDC00C59ADA /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -301,13 +299,13 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		3CA0128B286B4B9F00148376 /* PefStore */ = {
+		3CA0128B286B4B9F00148376 /* RealmUtilities */ = {
 			isa = PBXGroup;
 			children = (
 				3CA0128E286B523C00148376 /* RealmMigrator.swift */,
 				3CA0128C286B4BBA00148376 /* PefStore.swift */,
 			);
-			path = PefStore;
+			path = RealmUtilities;
 			sourceTree = "<group>";
 		};
 		3CA01296286FFE6700148376 /* ViewModifiers */ = {
@@ -329,10 +327,9 @@
 		3CA0129C287016B600148376 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				3CBD2CE32AEE599F00D78EAC /* Service */,
 				3CA012BE28709F3300148376 /* Views */,
 				3CA0129F287016FB00148376 /* SearchViewModel.swift */,
-				3CA012B228709B3D00148376 /* AnimalSearcherMock.swift */,
-				3CA012B02870973A00148376 /* AnimalSearcherService.swift */,
 				3CA012A12870224B00148376 /* Types.swift */,
 				3CA012B428709C9B00148376 /* FilterAnimals.swift */,
 			);
@@ -342,6 +339,7 @@
 		3CA012A32870270200148376 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3CA6467E2883C8E000EBBF63 /* String+Localization.swift */,
 				3CA01296286FFE6700148376 /* ViewModifiers */,
 				3CA6467628838D7500EBBF63 /* PetRankingView.swift */,
 				3CA64674288384EC00EBBF63 /* LoadingAnimation.swift */,
@@ -366,11 +364,10 @@
 		3CA012BE28709F3300148376 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3CA012BC28709EBA00148376 /* EmptyResultsView.swift */,
+				3CA0129D287016E400148376 /* SearchView.swift */,
 				3CA012B828709E3300148376 /* SuggestionsGrid.swift */,
 				3CA012BA28709E7E00148376 /* AnimalTypeSuggestionView.swift */,
 				3CA012B628709D4700148376 /* SearchFilterView.swift */,
-				3CA0129D287016E400148376 /* SearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -396,8 +393,9 @@
 		3CA138432868191200C59ADA /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				3CA0128B286B4B9F00148376 /* PefStore */,
-				3CA138582868298B00C59ADA /* Domain */,
+				3CA138442868196300C59ADA /* API */,
+				3CBD2CDE2AECFEBF00D78EAC /* Database */,
+				3CA0128B286B4B9F00148376 /* RealmUtilities */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -405,6 +403,8 @@
 		3CA138442868196300C59ADA /* API */ = {
 			isa = PBXGroup;
 			children = (
+				3CA1385A286829AC00C59ADA /* AnimalsContainer.swift */,
+				3CA1385C28682A2400C59ADA /* Animal.swift */,
 				3CA012702869679D00148376 /* AccessTokenManager.swift */,
 				3CA1384F28681F3800C59ADA /* DataParser.swift */,
 				3CA138662868317D00C59ADA /* Network */,
@@ -422,25 +422,6 @@
 				3CA13856286828F600C59ADA /* AnimalsRequest.swift */,
 			);
 			path = Request;
-			sourceTree = "<group>";
-		};
-		3CA138582868298B00C59ADA /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				3CBD2CDE2AECFEBF00D78EAC /* Database */,
-				3CA138442868196300C59ADA /* API */,
-				3CA138592868299300C59ADA /* Model */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		3CA138592868299300C59ADA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				3CA1385A286829AC00C59ADA /* AnimalsContainer.swift */,
-				3CA1385C28682A2400C59ADA /* Animal.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		3CA138662868317D00C59ADA /* Network */ = {
@@ -479,16 +460,25 @@
 			children = (
 				3CBD2CDC2AECF37500D78EAC /* AnimalEntity.swift */,
 			);
-			path = Database;
+			name = Database;
+			path = Domain/Database;
 			sourceTree = "<group>";
 		};
 		3CBD2CDF2AED0EFD00D78EAC /* Garbage */ = {
 			isa = PBXGroup;
 			children = (
 				3CA1385E28682B9700C59ADA /* Organization.swift */,
-				3CA6467E2883C8E000EBBF63 /* String+Localization.swift */,
 			);
 			path = Garbage;
+			sourceTree = "<group>";
+		};
+		3CBD2CE32AEE599F00D78EAC /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3CA012B228709B3D00148376 /* AnimalSearcherMock.swift */,
+				3CA012B02870973A00148376 /* AnimalSearcherService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -657,7 +647,6 @@
 				3CA01293286C321600148376 /* FetchAnimalsService.swift in Sources */,
 				3CA012B928709E3300148376 /* SuggestionsGrid.swift in Sources */,
 				3CBD2CDB2AECE6AF00D78EAC /* BookedAnimalsView.swift in Sources */,
-				3CA012BD28709EBA00148376 /* EmptyResultsView.swift in Sources */,
 				3CA1384C28681DA800C59ADA /* APIManager.swift in Sources */,
 				3CA6467F2883C8E000EBBF63 /* String+Localization.swift in Sources */,
 				3CA012B528709C9B00148376 /* FilterAnimals.swift in Sources */,
@@ -787,7 +776,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -842,7 +831,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -867,6 +856,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -895,6 +885,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -916,7 +907,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kane.PefFinderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -935,7 +926,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kane.PefFinderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

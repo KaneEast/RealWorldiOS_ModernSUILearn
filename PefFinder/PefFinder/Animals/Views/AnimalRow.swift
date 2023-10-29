@@ -45,14 +45,12 @@ struct AnimalRow: View {
     var image: some View {
         // TODO: k Image Cache
         AsyncImage(url: URL(string: animal.photoMedium ?? "")) { image in
-            image.resizable().accessibilityLabel("Image of Pet")
+            image.resizable()
         } placeholder: {
-            Image("rw-logo").resizable().accessibilityLabel("Placeholder Logo")
+            Image("rw-logo").resizable()
             .overlay {
                 if URL(string: animal.photoMedium ?? "") != nil {
                     ProgressView()
-                    .accessibilityLabel("Image loading indicator")
-                    .accessibilityHidden(true)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(.gray.opacity(0.4))
                 }

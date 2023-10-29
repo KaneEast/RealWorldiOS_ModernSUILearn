@@ -50,8 +50,6 @@ struct AnimalHeaderView: View {
                         damping: 1.0,
                         initialVelocity: 1) : .default, value: vm.isBooked)
                     .onTapGesture {
-//                        vm.isBooked.toggle()
-//                        animal.isBooked = favorited
                         vm.favoriteToggleAnimal()
                     }
                 
@@ -68,9 +66,7 @@ struct AnimalImage: View {
     
     var body: some View {
         AsyncImage(url: animalPicture) { image in
-            image
-            .resizable()
-            .aspectRatio(zoomed ? nil : 1, contentMode: zoomed ? .fit : .fill)
+            image.resizable().aspectRatio(zoomed ? nil : 1, contentMode: zoomed ? .fit : .fill)
         } placeholder: {
             Image("rw-logo")
             .resizable()
@@ -78,22 +74,15 @@ struct AnimalImage: View {
             .overlay {
                 if animalPicture != nil {
                     ProgressView()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(.gray.opacity(0.4))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(.gray.opacity(0.4))
                 }
             }
         }
-        .clipShape(
-            RoundedRectangle(cornerRadius: zoomed ? 0 : 300)
-        )
-        .frame(
-            width: zoomed ? geometry.frame(in: .local).width : 100,
-            height: zoomed ? geometry.frame(in: .global).midX : 100
-        )
-        .offset(
-            x: zoomed ? 0 : 0,
-            y: zoomed ? geometry.frame(in: .local).midY / 3 : 0
-        )
+        .clipShape(RoundedRectangle(cornerRadius: zoomed ? 0 : 300))
+        .frame(width: zoomed ? geometry.frame(in: .local).width : 100,
+               height: zoomed ? geometry.frame(in: .global).midX : 100)
+        .offset(x: zoomed ? 0 : 0, y: zoomed ? geometry.frame(in: .local).midY / 3 : 0)
         .scaleEffect((zoomed ? 5 : 3) / 3)
         .shadow(radius: zoomed ? 10 : 1)
         .animation(.spring(), value: zoomed)
@@ -122,16 +111,11 @@ struct HeaderTitle: View {
                 .font(.largeTitle)
                 .frame(maxWidth: .infinity, alignment: zoomed ? .center : .leading)
                 .accessibility(label: Text("The pet's name."))
-            //      Text("\(animal.breeds) \(animalType ?? "")")
             Text("\(animalType ?? "")")
                 .font(.title3)
                 .frame(maxWidth: .infinity, alignment: zoomed ? .center : .leading)
         }
-        .offset(
-            x: zoomed ? 0 : 0,
-            y: zoomed ? geometry.frame(in: .local).midY : 0
-        )
-        
+        .offset(x: zoomed ? 0 : 0, y: zoomed ? geometry.frame(in: .local).midY : 0)
         .animation(.spring(), value: zoomed)
     }
 }
