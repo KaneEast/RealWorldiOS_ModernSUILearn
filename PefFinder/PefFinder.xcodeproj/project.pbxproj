@@ -224,6 +224,7 @@
 		3C6961A728674E750089BE5C /* PefFinder */ = {
 			isa = PBXGroup;
 			children = (
+				3CBD2CEB2AEED08400D78EAC /* Constants.swift */,
 				3CBD2CDF2AED0EFD00D78EAC /* Garbage */,
 				3CA138432868191200C59ADA /* Core */,
 				3CA012A32870270200148376 /* Components */,
@@ -231,10 +232,9 @@
 				3CBD2CD72AECE55100D78EAC /* BookedAnimals */,
 				3CA0129C287016B600148376 /* Search */,
 				3CA13867286831C000C59ADA /* Animals */,
-				3C6961A828674E750089BE5C /* Root.swift */,
-				3CBD2CE72AEEAEAA00D78EAC /* AnimalTabs.swift */,
-				3CBD2CEB2AEED08400D78EAC /* Constants.swift */,
 				3CBD2CE92AEEB3F500D78EAC /* Router.swift */,
+				3CBD2CE72AEEAEAA00D78EAC /* AnimalTabs.swift */,
+				3C6961A828674E750089BE5C /* Root.swift */,
 				3C6961AC28674E770089BE5C /* Assets.xcassets */,
 				3C6961AE28674E770089BE5C /* Preview Content */,
 			);

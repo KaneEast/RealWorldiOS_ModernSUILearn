@@ -11,9 +11,9 @@ import Observation
 import SwiftUI
 
 public enum RouterDestination: Hashable {
-    case animals
-    case booked
-    case search
+//    case animals
+//    case booked
+//    case search
     case animalDetail
 }
 
@@ -35,6 +35,24 @@ public enum SheetDestination: Identifiable {
     public init() {}
     public func navigate(to: RouterDestination) {
         path.append(to)
+    }
+}
+
+extension View {
+    func withAppRouter() -> some View {
+        navigationDestination(for: RouterDestination.self) { destination in
+            switch destination {
+//            case .animals:
+//                AnimalsView()
+//            case .booked:
+//                BookedAnimalsView()
+//            case .search:
+//                SearchView()
+            case .animalDetail:
+//                AnimalDetailsView()
+                EmptyView()
+            }
+        }
     }
 }
 

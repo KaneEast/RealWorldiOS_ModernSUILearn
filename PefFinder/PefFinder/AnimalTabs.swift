@@ -38,20 +38,3 @@ struct SearchTab: View {
         .tabItem { Label("Search", systemImage: "magnifyingglass") }
     }
 }
-
-extension View {
-    func withAppRouter() -> some View {
-        navigationDestination(for: RouterDestination.self) { destination in
-            switch destination {
-            case .animals:
-                AnimalsView()
-            case .booked:
-                BookedAnimalsView()
-            case .search:
-                SearchView()
-            case .animalDetail:
-                EmptyView()
-            }
-        }
-    }
-}
