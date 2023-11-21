@@ -14,13 +14,9 @@ https://github.com/KaneEast/VocabularyRemember
 5. UnitTest
 
 ## スクリーンショット
-<p align="center">
-  <img src="./MarkdownImages/Screenshot1.png" width="30%" />
-  <img src="./MarkdownImages/Screenshot2.png" width="30%" />
-  <img src="./MarkdownImages/Screenshot3.png" width="30%" />
-</p>
-<p align="center">
-  <img src="./MarkdownImages/Screenshot4.png" width="30%" />
-  <img src="./MarkdownImages/Screenshot5.png" width="30%" />
-</p>
+|      |      |      |
+|:----:|:----:|:----:|
+| ![Image 1](./MarkdownImages/Screenshot1.png) | ![Image 2](./MarkdownImages/Screenshot2.png) | ![Image 3](./MarkdownImages/Screenshot3.png) |
+| ![Image 4](./MarkdownImages/Screenshot4.png) | ![Image 5](./MarkdownImages/Screenshot5.png) |      |
+
 
